@@ -1,0 +1,10 @@
+pandas_datareader>=0.10.0
+akshare>=1.15.0
+pandas>=2.0.0
+pyyaml>=6.0
+pyarrow>=10.0
+jinja2>=3.0
+rich>=13.0
+scipy>=1.10
+statsmodels>=0.14
+openpyxl>=3.1

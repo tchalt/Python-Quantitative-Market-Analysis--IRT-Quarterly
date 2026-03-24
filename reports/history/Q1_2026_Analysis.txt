@@ -1,0 +1,26 @@
+Global Quantitative Analysis Report - Q1_2026
+==================================================
+
+REGION: AMERICAS
+------------------------------
+^SPX: Return=-5.13%, Beta=1.0, Outlook=Market Alignment - Neutral
+^NDX: Return=-4.04%, Beta=1.2507, Outlook=Market Alignment - Neutral
+
+REGION: EUROPE
+------------------------------
+^DAX: Return=-7.92%, Beta=0.6593, Outlook=Defensive Positioning - Stable
+
+REGION: ASIA
+------------------------------
+sh601939: Return=-0.65%, Beta=nan, Outlook=Market Alignment - Neutral
+
+REGION: COMMODITIES
+------------------------------
+
+CURRENCY WATCH
+USD/CNY: 7.15
+EUR/CNY: 7.72
+EUR/USD: 1.08
+
+RISK ALERTS
+! ^DAX: Significant Beta shift detected: 0.66

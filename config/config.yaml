@@ -1,0 +1,50 @@
+# Global Quarterly Quantitative Analysis Model - Configuration
+# Tickers, Benchmarks, and Risk-Free Rates
+
+# --- Global Market (Americas, Europe) ---
+global:
+  americas:
+    indices: ["^SPX", "^NDX"]
+    commodities: ["GC.F", "SI.F", "HG.F"] # Stooq futures
+    commodities_fallback: ["GC=F", "SI=F", "HG=F"] # yfinance futures
+  europe:
+    indices: ["^STOXX50E", "^DAX"] # Changed ^STX50E to ^STOXX50E
+    shipping: ["BDI.INDEX"]
+    banks: ["ATEA.NO"]
+  risk_free_rate:
+    symbol: "^TNX.US"
+    default_value: 0.045
+
+# --- Domestic Market (China A-Shares) ---
+domestic:
+  indices: ["sh000001", "sz399001", "sh000300"]
+  banks: ["sh601939", "sh601288", "sh601988", "sh601398"]
+  others: ["sz300059"]
+  commodities: ["AU0", "AG0", "CU0"]
+  risk_free_rate:
+    symbol: "CBY"
+    default_value: 0.025
+
+# --- Foreign Exchange (FX) ---
+fx:
+  pairs: ["USD/CNY", "EUR/CNY", "EUR/USD"]
+  yfinance_symbols: ["USDCNY=X", "EURCNY=X", "EURUSD=X"]
+  historical_priority: "yfinance" # Prioritize yfinance for historical FX accuracy
+
+# --- Analysis Settings ---
+analysis:
+  frequency: "quarterly"
+  period_label: "2025 Q4 Analysis"
+  start_date: "2025-10-01"
+  end_date: "2025-12-31"
+  cache_dir: "cache"
+  log_file: "logs/quant_system.log"
+
+# --- API Settings ---
+api:
+  yfinance:
+    timeout: 30
+    retries: 3
+  akshare:
+    timeout: 60
+    retries: 5
