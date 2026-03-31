@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/tangtaowei/Desktop/MC PF/Model/.venv/bin/python3.11" "$0" "$@"
+'''exec' "/Users/tangtaowei/Desktop/MC PF/Model/.venv/bin/python3" "$0" "$@"
 ' '''
 import sys
 from numpy.f2py.f2py2e import main

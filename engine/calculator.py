@@ -9,6 +9,58 @@ class QuantCalculator:
     """
 
     @staticmethod
+    def calculate_hurst(price_series, max_lag=100):
+        """
+        Estimates the Hurst exponent H using a log-log regression on the standard deviation
+        of lagged log-price differences.
+
+        Interpretation:
+        - H < 0.5: mean-reverting behavior
+        - H ~ 0.5: random walk
+        - H > 0.5: trending/persistent behavior
+        """
+        try:
+            if price_series is None:
+                return np.nan
+
+            s = pd.Series(price_series).dropna()
+            if len(s) < 100:
+                return np.nan
+
+            s = s.astype(float)
+            s = s[s > 0]
+            if len(s) < 100:
+                return np.nan
+
+            logp = np.log(s.values)
+            max_lag = int(min(max_lag, len(logp) // 2))
+            if max_lag < 10:
+                return np.nan
+
+            lags = np.arange(2, max_lag + 1)
+            taus = []
+            for lag in lags:
+                diff = logp[lag:] - logp[:-lag]
+                tau = np.std(diff)
+                if np.isfinite(tau) and tau > 0:
+                    taus.append(tau)
+                else:
+                    taus.append(np.nan)
+
+            taus = np.array(taus, dtype=float)
+            valid = np.isfinite(taus) & (taus > 0)
+            if valid.sum() < 10:
+                return np.nan
+
+            x = np.log(lags[valid])
+            y = np.log(taus[valid])
+            slope, _ = np.polyfit(x, y, 1)
+            return float(slope)
+        except Exception as e:
+            logger.warning(f"Failed to calculate Hurst exponent: {str(e)}")
+            return np.nan
+
+    @staticmethod
     def calculate_risk_metrics(asset_returns, benchmark_returns, rf_rate, annualization_factor=252):
         """
         Calculates Sharpe Ratio, Beta, and Jensen's Alpha.
@@ -22,7 +74,7 @@ class QuantCalculator:
         aligned_data = pd.concat([asset_returns, benchmark_returns], axis=1).dropna()
         if aligned_data.empty:
             logger.warning("No overlapping data for risk calculation.")
-            return {"sharpe": np.nan, "beta": np.nan, "alpha": np.nan, "volatility": np.nan}
+            return {"sharpe": np.nan, "beta": np.nan, "alpha": np.nan, "volatility": np.nan, "n_obs": 0}
 
         r_p = aligned_data.iloc[:, 0]
         r_m = aligned_data.iloc[:, 1]
@@ -51,7 +103,8 @@ class QuantCalculator:
             "sharpe": round(sharpe, 4),
             "beta": round(beta, 4),
             "alpha": round(alpha, 4),
-            "volatility": round(vol, 4)
+            "volatility": round(vol, 4),
+            "n_obs": int(len(aligned_data))
         }
 
     @staticmethod

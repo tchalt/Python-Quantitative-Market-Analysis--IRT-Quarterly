@@ -14,6 +14,20 @@
         .anomaly { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin-bottom: 20px; }
         .outlook { font-style: italic; color: #555; background: #eef2f3; padding: 10px; border-radius: 5px; }
         .currency-card { display: inline-block; width: 200px; padding: 15px; margin: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
+        .summary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 20px 0 30px; }
+        .summary-card { background: white; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); border: 1px solid #e6e9eb; padding: 16px 16px 14px; }
+        .summary-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid #eef2f3; margin-bottom: 12px; }
+        .summary-title { font-weight: 700; color: #2c3e50; letter-spacing: 0.3px; }
+        .summary-tone { font-size: 0.85em; padding: 3px 10px; border-radius: 999px; background: #eef2f3; color: #2c3e50; }
+        .metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; }
+        .metric { background: #f7fafb; border: 1px solid #eef2f3; border-radius: 8px; padding: 10px 12px; }
+        .metric-label { font-size: 0.8em; color: #6b7b87; margin-bottom: 4px; }
+        .metric-value { font-weight: 700; color: #2c3e50; }
+        .leaders { margin-top: 12px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; }
+        .leader { background: #ffffff; border: 1px dashed #d8dee2; border-radius: 8px; padding: 10px 12px; }
+        .leader-label { font-size: 0.8em; color: #6b7b87; margin-bottom: 4px; }
+        .leader-value { font-weight: 700; color: #2c3e50; }
+        @media (max-width: 900px) { .summary-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -39,6 +53,8 @@
                 <th>Sharpe</th>
                 <th>Alpha</th>
                 <th>Beta</th>
+                <th>Hurst</th>
+                <th>N</th>
                 <th>Outlook</th>
             </tr>
         </thead>
@@ -50,6 +66,8 @@
                 <td>{{ asset.risk.sharpe }}</td>
                 <td>{{ asset.risk.alpha }}</td>
                 <td>{{ asset.risk.beta }}</td>
+                <td>{{ asset.risk.hurst }}</td>
+                <td>{{ asset.quality.regression_n }}</td>
                 <td class="outlook">{{ asset.outlook }}</td>
             </tr>
             {% endfor %}
@@ -63,6 +81,48 @@
         <strong>{{ anomaly.asset }}:</strong> {{ anomaly.message }}
     </div>
     {% endfor %}
+    {% endif %}
+
+    {% if summaries %}
+    <h2>4. Executive Summary (By Region)</h2>
+    <div class="summary-grid">
+        {% for s in summaries %}
+        <div class="summary-card">
+            <div class="summary-head">
+                <div class="summary-title">{{ s.region|upper }}</div>
+                <div class="summary-tone">{{ s.tone }}</div>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-label">Avg Return</div>
+                    <div class="metric-value">{{ s.avg_return }}</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Sharpe</div>
+                    <div class="metric-value">{{ s.avg_sharpe }}</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Beta</div>
+                    <div class="metric-value">{{ s.avg_beta }}</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Hurst</div>
+                    <div class="metric-value">{{ s.avg_hurst }}</div>
+                </div>
+            </div>
+            <div class="leaders">
+                <div class="leader">
+                    <div class="leader-label">Best</div>
+                    <div class="leader-value">{{ s.best }}</div>
+                </div>
+                <div class="leader">
+                    <div class="leader-label">Worst</div>
+                    <div class="leader-value">{{ s.worst }}</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
     {% endif %}
 
     <footer>

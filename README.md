@@ -41,7 +41,7 @@ Configuration-driven pipeline that fetches global (Stooq with yfinance fallback)
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -r requirements.txt
+python3 -m pip install -r requirements.lock
 ```
 
 ## Configure the Quarter (Example: 2025 Q4)
@@ -89,4 +89,3 @@ python3 main.py --force-refresh
   - Check `logs/quant_system.log` for the exact exception and which fallback path was used.
 - If you see missing global tickers:
   - Some Stooq symbols differ from Yahoo symbols; adjust mappings in `config/config.yaml`.
-

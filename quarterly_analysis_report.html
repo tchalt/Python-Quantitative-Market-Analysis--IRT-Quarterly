@@ -14,11 +14,25 @@
         .anomaly { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin-bottom: 20px; }
         .outlook { font-style: italic; color: #555; background: #eef2f3; padding: 10px; border-radius: 5px; }
         .currency-card { display: inline-block; width: 200px; padding: 15px; margin: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
+        .summary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 20px 0 30px; }
+        .summary-card { background: white; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); border: 1px solid #e6e9eb; padding: 16px 16px 14px; }
+        .summary-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid #eef2f3; margin-bottom: 12px; }
+        .summary-title { font-weight: 700; color: #2c3e50; letter-spacing: 0.3px; }
+        .summary-tone { font-size: 0.85em; padding: 3px 10px; border-radius: 999px; background: #eef2f3; color: #2c3e50; }
+        .metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; }
+        .metric { background: #f7fafb; border: 1px solid #eef2f3; border-radius: 8px; padding: 10px 12px; }
+        .metric-label { font-size: 0.8em; color: #6b7b87; margin-bottom: 4px; }
+        .metric-value { font-weight: 700; color: #2c3e50; }
+        .leaders { margin-top: 12px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; }
+        .leader { background: #ffffff; border: 1px dashed #d8dee2; border-radius: 8px; padding: 10px 12px; }
+        .leader-label { font-size: 0.8em; color: #6b7b87; margin-bottom: 4px; }
+        .leader-value { font-weight: 700; color: #2c3e50; }
+        @media (max-width: 900px) { .summary-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <h1>Global Quarterly Quantitative Analysis Report</h1>
-    <p>Generated on: 2026-03-24 12:58:47 | Period: 2025 Q4 Analysis</p>
+    <p>Generated on: 2026-03-31 19:29:12 | Period: 2025 Q4 Analysis</p>
 
     <h2>1. Currency Watch (BOC Spot Rates)</h2>
     <div class="currency-container">
@@ -49,26 +63,32 @@
                 <th>Sharpe</th>
                 <th>Alpha</th>
                 <th>Beta</th>
+                <th>Hurst</th>
+                <th>N</th>
                 <th>Outlook</th>
             </tr>
         </thead>
         <tbody>
             
             <tr>
-                <td>^SPX</td>
-                <td class="up">2.00%</td>
-                <td>0.3324</td>
+                <td>^GSPC</td>
+                <td class="up">2.76%</td>
+                <td>0.5784</td>
                 <td>0.0</td>
                 <td>1.0</td>
+                <td>0.4118</td>
+                <td>62</td>
                 <td class="outlook">Market Alignment - Neutral</td>
             </tr>
             
             <tr>
                 <td>^NDX</td>
-                <td class="up">1.81%</td>
-                <td>0.2369</td>
-                <td>-0.015</td>
-                <td>1.3767</td>
+                <td class="up">2.67%</td>
+                <td>0.4294</td>
+                <td>-0.023</td>
+                <td>1.3805</td>
+                <td>0.4031</td>
+                <td>62</td>
                 <td class="outlook">Market Alignment - Neutral</td>
             </tr>
             
@@ -78,88 +98,119 @@
                 <td>1.0371</td>
                 <td>0.0895</td>
                 <td>0.5045</td>
+                <td>0.3622</td>
+                <td>60</td>
                 <td class="outlook">Strong Momentum - Bullish</td>
             </tr>
             
             <tr>
-                <td>^DAX</td>
+                <td>^GDAXI</td>
                 <td class="up">1.56%</td>
                 <td>0.1629</td>
                 <td>-0.0153</td>
                 <td>0.5505</td>
+                <td>0.3687</td>
+                <td>60</td>
                 <td class="outlook">Defensive Positioning - Stable</td>
             </tr>
             
             <tr>
                 <td>sh601939</td>
                 <td class="up">7.04%</td>
-                <td>1.4126</td>
-                <td>0.2699</td>
-                <td>-0.2005</td>
+                <td>1.2756</td>
+                <td>0.2525</td>
+                <td>-0.1929</td>
+                <td>0.2553</td>
+                <td>56</td>
                 <td class="outlook">Strong Momentum - Bullish</td>
             </tr>
             
             <tr>
                 <td>sh601288</td>
                 <td class="up">14.63%</td>
-                <td>2.125</td>
-                <td>0.535</td>
-                <td>0.0582</td>
+                <td>1.9878</td>
+                <td>0.5009</td>
+                <td>0.0731</td>
+                <td>0.3491</td>
+                <td>56</td>
                 <td class="outlook">Strong Momentum - Bullish</td>
             </tr>
             
             <tr>
                 <td>sh601988</td>
                 <td class="up">9.56%</td>
-                <td>1.962</td>
-                <td>0.3868</td>
-                <td>-0.2374</td>
+                <td>1.7471</td>
+                <td>0.354</td>
+                <td>-0.223</td>
+                <td>0.3025</td>
+                <td>56</td>
                 <td class="outlook">Strong Momentum - Bullish</td>
             </tr>
             
             <tr>
                 <td>sh601398</td>
                 <td class="up">8.48%</td>
-                <td>2.08</td>
-                <td>0.3639</td>
-                <td>-0.1752</td>
+                <td>1.8491</td>
+                <td>0.3303</td>
+                <td>-0.1605</td>
+                <td>0.2629</td>
+                <td>56</td>
                 <td class="outlook">Strong Momentum - Bullish</td>
             </tr>
             
             <tr>
                 <td>sz300059</td>
                 <td class="down">-13.38%</td>
-                <td>-2.925</td>
-                <td>-0.6788</td>
-                <td>0.1872</td>
+                <td>-2.748</td>
+                <td>-0.6475</td>
+                <td>0.1735</td>
+                <td>0.5617</td>
+                <td>56</td>
                 <td class="outlook">Defensive Positioning - Stable</td>
             </tr>
             
             <tr>
-                <td>GC.F</td>
+                <td>GC=F</td>
                 <td class="up">13.00%</td>
                 <td>1.9041</td>
                 <td>0.4523</td>
                 <td>0.4336</td>
+                <td>0.4246</td>
+                <td>62</td>
                 <td class="outlook">Strong Momentum - Bullish</td>
             </tr>
             
             <tr>
-                <td>SI.F</td>
-                <td class="down">-20.29%</td>
-                <td>-1.449</td>
-                <td>-0.8391</td>
-                <td>0.9456</td>
-                <td class="outlook">Market Alignment - Neutral</td>
+                <td>SI=F</td>
+                <td class="up">63.62%</td>
+                <td>3.8177</td>
+                <td>2.0617</td>
+                <td>0.7123</td>
+                <td>0.3855</td>
+                <td>62</td>
+                <td class="outlook">Strong Momentum - Bullish</td>
             </tr>
             
             <tr>
-                <td>HG.F</td>
+                <td>HG=F</td>
                 <td class="up">18.57%</td>
                 <td>2.2842</td>
                 <td>0.6092</td>
                 <td>1.1459</td>
+                <td>0.3103</td>
+                <td>62</td>
                 <td class="outlook">Strong Momentum - Bullish</td>
+            </tr>
+            
+            <tr>
+                <td>BZ=F</td>
+                <td class="down">-5.25%</td>
+                <td>-0.9551</td>
+                <td>-0.2677</td>
+                <td>0.4518</td>
+                <td>0.3259</td>
+                <td>62</td>
+                <td class="outlook">Defensive Positioning - Stable</td>
             </tr>
             
         </tbody>
@@ -177,37 +228,227 @@
     </div>
     
     <div class="anomaly">
-        <strong>^DAX:</strong> Significant Beta shift detected: 0.55
+        <strong>^GDAXI:</strong> Significant Beta shift detected: 0.55
     </div>
     
     <div class="anomaly">
-        <strong>sh601939:</strong> Significant Beta shift detected: -0.20
+        <strong>sh601939:</strong> Significant Beta shift detected: -0.19
     </div>
     
     <div class="anomaly">
-        <strong>sh601288:</strong> Significant Beta shift detected: 0.06
+        <strong>sh601288:</strong> Significant Beta shift detected: 0.07
     </div>
     
     <div class="anomaly">
-        <strong>sh601988:</strong> Significant Beta shift detected: -0.24
+        <strong>sh601988:</strong> Significant Beta shift detected: -0.22
     </div>
     
     <div class="anomaly">
-        <strong>sh601398:</strong> Significant Beta shift detected: -0.18
+        <strong>sh601398:</strong> Significant Beta shift detected: -0.16
     </div>
     
     <div class="anomaly">
-        <strong>sz300059:</strong> Significant Beta shift detected: 0.19
+        <strong>sz300059:</strong> Significant Beta shift detected: 0.17
     </div>
     
     <div class="anomaly">
-        <strong>GC.F:</strong> Significant Beta shift detected: 0.43
+        <strong>GC=F:</strong> Significant Beta shift detected: 0.43
     </div>
     
     <div class="anomaly">
-        <strong>SI.F:</strong> Extreme volatility alert: 55.15%
+        <strong>GC=F:</strong> Quarterly volatility is in the top 5% of its 3-year history (current=25.43%, p95=25.07%)
     </div>
     
+    <div class="anomaly">
+        <strong>SI=F:</strong> Quarterly volatility is in the top 5% of its 3-year history (current=55.38%, p95=39.49%)
+    </div>
+    
+    <div class="anomaly">
+        <strong>BZ=F:</strong> Significant Beta shift detected: 0.45
+    </div>
+    
+    
+
+    
+    <h2>4. Executive Summary (By Region)</h2>
+    <div class="summary-grid">
+        
+        <div class="summary-card">
+            <div class="summary-head">
+                <div class="summary-title">AMERICAS</div>
+                <div class="summary-tone">Neutral</div>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-label">Avg Return</div>
+                    <div class="metric-value">2.71%</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Sharpe</div>
+                    <div class="metric-value">0.50</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Beta</div>
+                    <div class="metric-value">1.19</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Hurst</div>
+                    <div class="metric-value">0.41</div>
+                </div>
+            </div>
+            <div class="leaders">
+                <div class="leader">
+                    <div class="leader-label">Best</div>
+                    <div class="leader-value">^GSPC (2.76%)</div>
+                </div>
+                <div class="leader">
+                    <div class="leader-label">Worst</div>
+                    <div class="leader-value">^NDX (2.67%)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary-card">
+            <div class="summary-head">
+                <div class="summary-title">EUROPE</div>
+                <div class="summary-tone">Neutral</div>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-label">Avg Return</div>
+                    <div class="metric-value">2.70%</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Sharpe</div>
+                    <div class="metric-value">0.60</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Beta</div>
+                    <div class="metric-value">0.53</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Hurst</div>
+                    <div class="metric-value">0.37</div>
+                </div>
+            </div>
+            <div class="leaders">
+                <div class="leader">
+                    <div class="leader-label">Best</div>
+                    <div class="leader-value">^STOXX50E (3.85%)</div>
+                </div>
+                <div class="leader">
+                    <div class="leader-label">Worst</div>
+                    <div class="leader-value">^GDAXI (1.56%)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary-card">
+            <div class="summary-head">
+                <div class="summary-title">ASIA</div>
+                <div class="summary-tone">Neutral</div>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-label">Avg Return</div>
+                    <div class="metric-value">5.27%</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Sharpe</div>
+                    <div class="metric-value">0.82</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Beta</div>
+                    <div class="metric-value">-0.07</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Hurst</div>
+                    <div class="metric-value">0.35</div>
+                </div>
+            </div>
+            <div class="leaders">
+                <div class="leader">
+                    <div class="leader-label">Best</div>
+                    <div class="leader-value">sh601288 (14.63%)</div>
+                </div>
+                <div class="leader">
+                    <div class="leader-label">Worst</div>
+                    <div class="leader-value">sz300059 (-13.38%)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary-card">
+            <div class="summary-head">
+                <div class="summary-title">COMMODITIES</div>
+                <div class="summary-tone">Constructive</div>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-label">Avg Return</div>
+                    <div class="metric-value">31.73%</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Sharpe</div>
+                    <div class="metric-value">2.67</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Beta</div>
+                    <div class="metric-value">0.76</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Hurst</div>
+                    <div class="metric-value">0.37</div>
+                </div>
+            </div>
+            <div class="leaders">
+                <div class="leader">
+                    <div class="leader-label">Best</div>
+                    <div class="leader-value">SI=F (63.62%)</div>
+                </div>
+                <div class="leader">
+                    <div class="leader-label">Worst</div>
+                    <div class="leader-value">GC=F (13.00%)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary-card">
+            <div class="summary-head">
+                <div class="summary-title">OIL</div>
+                <div class="summary-tone">Cautious</div>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-label">Avg Return</div>
+                    <div class="metric-value">-5.25%</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Sharpe</div>
+                    <div class="metric-value">-0.96</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Beta</div>
+                    <div class="metric-value">0.45</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Avg Hurst</div>
+                    <div class="metric-value">0.33</div>
+                </div>
+            </div>
+            <div class="leaders">
+                <div class="leader">
+                    <div class="leader-label">Best</div>
+                    <div class="leader-value">BZ=F (-5.25%)</div>
+                </div>
+                <div class="leader">
+                    <div class="leader-label">Worst</div>
+                    <div class="leader-value">BZ=F (-5.25%)</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
     
 
     <footer>

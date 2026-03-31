@@ -932,3 +932,551 @@
 2026-03-24 12:58:47 - QuantSystem - INFO - Loading HG=F from cache: cache/HGF_2025Q4.parquet
 2026-03-24 12:58:47 - QuantSystem - INFO - HTML report generated: quarterly_analysis_report.html
 2026-03-24 12:58:47 - QuantSystem - INFO - History report saved to reports/history/Q4_2025_Analysis.txt
+2026-03-31 15:00:42 - QuantSystem - INFO - Configuration loaded successfully.
+2026-03-31 15:00:42 - QuantSystem - INFO - Fetching FX Rates (BOC with yfinance fallback)...
+2026-03-31 15:00:42 - QuantSystem - INFO - Loading USDCNY=X from cache: cache/USDCNYX_2025Q4.parquet
+2026-03-31 15:00:43 - QuantSystem - INFO - Loading EURCNY=X from cache: cache/EURCNYX_2025Q4.parquet
+2026-03-31 15:00:43 - QuantSystem - INFO - Loading EURUSD=X from cache: cache/EURUSDX_2025Q4.parquet
+2026-03-31 15:00:43 - QuantSystem - INFO - Fetching Stooq data for ^SPX from 2025-10-01 to 2025-12-31
+2026-03-31 15:00:43 - QuantSystem - ERROR - Stooq API error for ^SPX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:00:43 - QuantSystem - INFO - Stooq failed for ^SPX, trying yfinance fallback
+2026-03-31 15:00:43 - QuantSystem - INFO - Fetching yfinance data for ^SPX from 2025-10-01 to 2025-12-31
+2026-03-31 15:00:45 - QuantSystem - INFO - Saved ^SPX to cache: cache/SPX_2025Q4.parquet
+2026-03-31 15:00:45 - QuantSystem - INFO - Fetching Stooq data for ^SPX from 2025-10-01 to 2025-12-31
+2026-03-31 15:00:45 - QuantSystem - ERROR - Stooq API error for ^SPX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:00:45 - QuantSystem - INFO - Stooq failed for ^SPX, trying yfinance fallback
+2026-03-31 15:00:45 - QuantSystem - INFO - Fetching yfinance data for ^SPX from 2025-10-01 to 2025-12-31
+2026-03-31 15:00:45 - QuantSystem - INFO - Saved ^SPX to cache: cache/SPX_2025Q4.parquet
+2026-03-31 15:00:45 - QuantSystem - INFO - Fetching Stooq data for ^NDX from 2025-10-01 to 2025-12-31
+2026-03-31 15:00:45 - QuantSystem - ERROR - Stooq API error for ^NDX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:00:45 - QuantSystem - INFO - Stooq failed for ^NDX, trying yfinance fallback
+2026-03-31 15:00:45 - QuantSystem - INFO - Fetching yfinance data for ^NDX from 2025-10-01 to 2025-12-31
+2026-03-31 15:00:46 - QuantSystem - INFO - Saved ^NDX to cache: cache/NDX_2025Q4.parquet
+2026-03-31 15:00:46 - QuantSystem - INFO - Fetching Stooq data for ^STOXX50E from 2025-10-01 to 2025-12-31
+2026-03-31 15:00:46 - QuantSystem - ERROR - Stooq API error for ^STOXX50E: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:00:46 - QuantSystem - INFO - Stooq failed for ^STOXX50E, trying yfinance fallback
+2026-03-31 15:00:46 - QuantSystem - INFO - Fetching yfinance data for ^STOXX50E from 2025-10-01 to 2025-12-31
+2026-03-31 15:00:46 - QuantSystem - INFO - Saved ^STOXX50E to cache: cache/STOXX50E_2025Q4.parquet
+2026-03-31 15:00:46 - QuantSystem - INFO - Fetching Stooq data for ^DAX from 2025-10-01 to 2025-12-31
+2026-03-31 15:00:46 - QuantSystem - ERROR - Stooq API error for ^DAX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:00:46 - QuantSystem - INFO - Stooq failed for ^DAX, trying yfinance fallback
+2026-03-31 15:00:46 - QuantSystem - INFO - Fetching yfinance data for ^DAX from 2025-10-01 to 2025-12-31
+2026-03-31 15:00:47 - QuantSystem - INFO - Fetching akshare data for sh601939 from 2025-10-01 to 2025-12-31
+2026-03-31 15:00:56 - QuantSystem - INFO - Saved sh601939 to cache: cache/sh601939_2025Q4.parquet
+2026-03-31 15:00:56 - QuantSystem - INFO - Fetching akshare data for sh601288 from 2025-10-01 to 2025-12-31
+2026-03-31 15:00:58 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601288, trying fallback interfaces
+2026-03-31 15:01:02 - QuantSystem - INFO - Saved sh601288 to cache: cache/sh601288_2025Q4.parquet
+2026-03-31 15:01:02 - QuantSystem - INFO - Fetching akshare data for sh601988 from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:06 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601988, trying fallback interfaces
+2026-03-31 15:01:08 - QuantSystem - INFO - Saved sh601988 to cache: cache/sh601988_2025Q4.parquet
+2026-03-31 15:01:08 - QuantSystem - INFO - Fetching akshare data for sh601398 from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:11 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601398, trying fallback interfaces
+2026-03-31 15:01:13 - QuantSystem - INFO - Saved sh601398 to cache: cache/sh601398_2025Q4.parquet
+2026-03-31 15:01:13 - QuantSystem - INFO - Fetching akshare data for sz300059 from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:16 - QuantSystem - WARNING - stock_zh_a_hist failed for sz300059, trying fallback interfaces
+2026-03-31 15:01:18 - QuantSystem - INFO - Saved sz300059 to cache: cache/sz300059_2025Q4.parquet
+2026-03-31 15:01:18 - QuantSystem - INFO - Fetching Stooq data for GC.F from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:18 - QuantSystem - ERROR - Stooq API error for GC.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:01:18 - QuantSystem - INFO - Stooq failed for GC.F, trying yfinance fallback
+2026-03-31 15:01:18 - QuantSystem - INFO - Fetching yfinance data for GC.F from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:18 - QuantSystem - INFO - Primary GC.F failed, trying fallback GC=F
+2026-03-31 15:01:18 - QuantSystem - INFO - Fetching yfinance data for GC=F from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:18 - QuantSystem - INFO - Saved GC=F to cache: cache/GCF_2025Q4.parquet
+2026-03-31 15:01:18 - QuantSystem - INFO - Fetching Stooq data for SI.F from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:19 - QuantSystem - ERROR - Stooq API error for SI.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:01:19 - QuantSystem - INFO - Stooq failed for SI.F, trying yfinance fallback
+2026-03-31 15:01:19 - QuantSystem - INFO - Fetching yfinance data for SI.F from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:20 - QuantSystem - INFO - Primary SI.F failed, trying fallback SI=F
+2026-03-31 15:01:20 - QuantSystem - INFO - Fetching yfinance data for SI=F from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:20 - QuantSystem - INFO - Saved SI=F to cache: cache/SIF_2025Q4.parquet
+2026-03-31 15:01:20 - QuantSystem - INFO - Fetching Stooq data for HG.F from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:20 - QuantSystem - ERROR - Stooq API error for HG.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:01:20 - QuantSystem - INFO - Stooq failed for HG.F, trying yfinance fallback
+2026-03-31 15:01:20 - QuantSystem - INFO - Fetching yfinance data for HG.F from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:22 - QuantSystem - INFO - Primary HG.F failed, trying fallback HG=F
+2026-03-31 15:01:22 - QuantSystem - INFO - Fetching yfinance data for HG=F from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:22 - QuantSystem - INFO - Saved HG=F to cache: cache/HGF_2025Q4.parquet
+2026-03-31 15:01:22 - QuantSystem - INFO - Fetching yfinance data for BZ=F from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:22 - QuantSystem - INFO - Saved BZ=F to cache: cache/BZF_2025Q4.parquet
+2026-03-31 15:01:22 - QuantSystem - INFO - Fetching yfinance data for CL=F from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:23 - QuantSystem - INFO - Saved CL=F to cache: cache/CLF_2025Q4.parquet
+2026-03-31 15:01:23 - QuantSystem - INFO - Fetching akshare data for SC0 from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:24 - QuantSystem - INFO - Fetching yfinance data for SC=F from 2025-10-01 to 2025-12-31
+2026-03-31 15:01:25 - QuantSystem - INFO - HTML report generated: quarterly_analysis_report.html
+2026-03-31 15:01:25 - QuantSystem - INFO - History report saved to reports/history/Q4_2025_Analysis.txt
+2026-03-31 15:03:10 - QuantSystem - INFO - Configuration loaded successfully.
+2026-03-31 15:03:10 - QuantSystem - INFO - Fetching FX Rates (BOC with yfinance fallback)...
+2026-03-31 15:03:10 - QuantSystem - INFO - Loading USDCNY=X from cache: cache/USDCNYX_2025Q4.parquet
+2026-03-31 15:03:10 - QuantSystem - INFO - Loading EURCNY=X from cache: cache/EURCNYX_2025Q4.parquet
+2026-03-31 15:03:10 - QuantSystem - INFO - Loading EURUSD=X from cache: cache/EURUSDX_2025Q4.parquet
+2026-03-31 15:03:10 - QuantSystem - INFO - Fetching Stooq data for ^SPX from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:10 - QuantSystem - ERROR - Stooq API error for ^SPX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:03:10 - QuantSystem - INFO - Stooq failed for ^SPX, trying yfinance fallback
+2026-03-31 15:03:10 - QuantSystem - INFO - Fetching yfinance data for ^SPX from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:11 - QuantSystem - INFO - Saved ^SPX to cache: cache/SPX_2025Q4.parquet
+2026-03-31 15:03:11 - QuantSystem - INFO - Fetching Stooq data for ^SPX from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:11 - QuantSystem - ERROR - Stooq API error for ^SPX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:03:11 - QuantSystem - INFO - Stooq failed for ^SPX, trying yfinance fallback
+2026-03-31 15:03:11 - QuantSystem - INFO - Fetching yfinance data for ^SPX from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:11 - QuantSystem - INFO - Saved ^SPX to cache: cache/SPX_2025Q4.parquet
+2026-03-31 15:03:11 - QuantSystem - INFO - Fetching Stooq data for ^NDX from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:11 - QuantSystem - ERROR - Stooq API error for ^NDX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:03:11 - QuantSystem - INFO - Stooq failed for ^NDX, trying yfinance fallback
+2026-03-31 15:03:11 - QuantSystem - INFO - Fetching yfinance data for ^NDX from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:12 - QuantSystem - INFO - Saved ^NDX to cache: cache/NDX_2025Q4.parquet
+2026-03-31 15:03:12 - QuantSystem - INFO - Fetching Stooq data for ^STOXX50E from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:12 - QuantSystem - ERROR - Stooq API error for ^STOXX50E: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:03:12 - QuantSystem - INFO - Stooq failed for ^STOXX50E, trying yfinance fallback
+2026-03-31 15:03:12 - QuantSystem - INFO - Fetching yfinance data for ^STOXX50E from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:12 - QuantSystem - INFO - Saved ^STOXX50E to cache: cache/STOXX50E_2025Q4.parquet
+2026-03-31 15:03:12 - QuantSystem - INFO - Fetching Stooq data for ^DAX from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:12 - QuantSystem - ERROR - Stooq API error for ^DAX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:03:12 - QuantSystem - INFO - Stooq failed for ^DAX, trying yfinance fallback
+2026-03-31 15:03:12 - QuantSystem - INFO - Fetching yfinance data for ^DAX from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:13 - QuantSystem - INFO - Fetching akshare data for sh601939 from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:16 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601939, trying fallback interfaces
+2026-03-31 15:03:21 - QuantSystem - INFO - Saved sh601939 to cache: cache/sh601939_2025Q4.parquet
+2026-03-31 15:03:21 - QuantSystem - INFO - Fetching akshare data for sh601288 from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:23 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601288, trying fallback interfaces
+2026-03-31 15:03:25 - QuantSystem - INFO - Saved sh601288 to cache: cache/sh601288_2025Q4.parquet
+2026-03-31 15:03:25 - QuantSystem - INFO - Fetching akshare data for sh601988 from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:27 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601988, trying fallback interfaces
+2026-03-31 15:03:29 - QuantSystem - INFO - Saved sh601988 to cache: cache/sh601988_2025Q4.parquet
+2026-03-31 15:03:29 - QuantSystem - INFO - Fetching akshare data for sh601398 from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:32 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601398, trying fallback interfaces
+2026-03-31 15:03:34 - QuantSystem - INFO - Saved sh601398 to cache: cache/sh601398_2025Q4.parquet
+2026-03-31 15:03:34 - QuantSystem - INFO - Fetching akshare data for sz300059 from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:36 - QuantSystem - WARNING - stock_zh_a_hist failed for sz300059, trying fallback interfaces
+2026-03-31 15:03:38 - QuantSystem - INFO - Saved sz300059 to cache: cache/sz300059_2025Q4.parquet
+2026-03-31 15:03:38 - QuantSystem - INFO - Fetching Stooq data for GC.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:38 - QuantSystem - ERROR - Stooq API error for GC.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:03:38 - QuantSystem - INFO - Stooq failed for GC.F, trying yfinance fallback
+2026-03-31 15:03:38 - QuantSystem - INFO - Fetching yfinance data for GC.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:39 - QuantSystem - INFO - Primary GC.F failed, trying fallback GC=F
+2026-03-31 15:03:39 - QuantSystem - INFO - Fetching yfinance data for GC=F from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:39 - QuantSystem - INFO - Saved GC=F to cache: cache/GCF_2025Q4.parquet
+2026-03-31 15:03:39 - QuantSystem - INFO - Fetching Stooq data for SI.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:39 - QuantSystem - ERROR - Stooq API error for SI.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:03:39 - QuantSystem - INFO - Stooq failed for SI.F, trying yfinance fallback
+2026-03-31 15:03:39 - QuantSystem - INFO - Fetching yfinance data for SI.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:41 - QuantSystem - INFO - Primary SI.F failed, trying fallback SI=F
+2026-03-31 15:03:41 - QuantSystem - INFO - Fetching yfinance data for SI=F from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:41 - QuantSystem - INFO - Saved SI=F to cache: cache/SIF_2025Q4.parquet
+2026-03-31 15:03:41 - QuantSystem - INFO - Fetching Stooq data for HG.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:41 - QuantSystem - ERROR - Stooq API error for HG.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:03:41 - QuantSystem - INFO - Stooq failed for HG.F, trying yfinance fallback
+2026-03-31 15:03:41 - QuantSystem - INFO - Fetching yfinance data for HG.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:43 - QuantSystem - INFO - Primary HG.F failed, trying fallback HG=F
+2026-03-31 15:03:43 - QuantSystem - INFO - Fetching yfinance data for HG=F from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:43 - QuantSystem - INFO - Saved HG=F to cache: cache/HGF_2025Q4.parquet
+2026-03-31 15:03:43 - QuantSystem - INFO - Fetching yfinance data for BZ=F from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:43 - QuantSystem - INFO - Saved BZ=F to cache: cache/BZF_2025Q4.parquet
+2026-03-31 15:03:43 - QuantSystem - INFO - Fetching yfinance data for CL=F from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:44 - QuantSystem - INFO - Saved CL=F to cache: cache/CLF_2025Q4.parquet
+2026-03-31 15:03:44 - QuantSystem - INFO - Fetching akshare data for SC0 from 2022-12-31 to 2025-12-31
+2026-03-31 15:03:47 - QuantSystem - INFO - Saved SC0 to cache: cache/SC0_2025Q4.parquet
+2026-03-31 15:03:47 - QuantSystem - INFO - HTML report generated: quarterly_analysis_report.html
+2026-03-31 15:03:47 - QuantSystem - INFO - History report saved to reports/history/Q4_2025_Analysis.txt
+2026-03-31 15:08:56 - QuantSystem - INFO - Configuration loaded successfully.
+2026-03-31 15:08:56 - QuantSystem - INFO - Fetching FX Rates (BOC with yfinance fallback)...
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading USDCNY=X from cache: cache/USDCNYX_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading EURCNY=X from cache: cache/EURCNYX_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading EURUSD=X from cache: cache/EURUSDX_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading ^SPX from cache: cache/SPX_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading ^SPX from cache: cache/SPX_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading ^NDX from cache: cache/NDX_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading ^STOXX50E from cache: cache/STOXX50E_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading ^DAX from cache: cache/DAX_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading sh601939 from cache: cache/sh601939_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading sh601288 from cache: cache/sh601288_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading sh601988 from cache: cache/sh601988_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading sh601398 from cache: cache/sh601398_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Loading sz300059 from cache: cache/sz300059_2025Q4.parquet
+2026-03-31 15:08:56 - QuantSystem - INFO - Fetching Stooq data for GC.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:08:57 - QuantSystem - ERROR - Stooq API error for GC.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:08:57 - QuantSystem - INFO - Stooq failed for GC.F, trying yfinance fallback
+2026-03-31 15:08:57 - QuantSystem - INFO - Fetching yfinance data for GC.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:08:57 - QuantSystem - INFO - Primary GC.F failed, trying fallback GC=F
+2026-03-31 15:08:57 - QuantSystem - INFO - Loading GC=F from cache: cache/GCF_2025Q4.parquet
+2026-03-31 15:08:57 - QuantSystem - INFO - Fetching Stooq data for SI.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:08:57 - QuantSystem - ERROR - Stooq API error for SI.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:08:57 - QuantSystem - INFO - Stooq failed for SI.F, trying yfinance fallback
+2026-03-31 15:08:57 - QuantSystem - INFO - Fetching yfinance data for SI.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:08:59 - QuantSystem - INFO - Primary SI.F failed, trying fallback SI=F
+2026-03-31 15:08:59 - QuantSystem - INFO - Loading SI=F from cache: cache/SIF_2025Q4.parquet
+2026-03-31 15:08:59 - QuantSystem - INFO - Fetching Stooq data for HG.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:08:59 - QuantSystem - ERROR - Stooq API error for HG.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:08:59 - QuantSystem - INFO - Stooq failed for HG.F, trying yfinance fallback
+2026-03-31 15:08:59 - QuantSystem - INFO - Fetching yfinance data for HG.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:09:01 - QuantSystem - INFO - Primary HG.F failed, trying fallback HG=F
+2026-03-31 15:09:01 - QuantSystem - INFO - Loading HG=F from cache: cache/HGF_2025Q4.parquet
+2026-03-31 15:09:01 - QuantSystem - INFO - Loading BZ=F from cache: cache/BZF_2025Q4.parquet
+2026-03-31 15:09:01 - QuantSystem - INFO - Loading CL=F from cache: cache/CLF_2025Q4.parquet
+2026-03-31 15:09:01 - QuantSystem - INFO - Loading SC0 from cache: cache/SC0_2025Q4.parquet
+2026-03-31 15:09:01 - QuantSystem - INFO - HTML report generated: quarterly_analysis_report.html
+2026-03-31 15:09:01 - QuantSystem - INFO - History report saved to reports/history/Q4_2025_Analysis.txt
+2026-03-31 15:15:04 - QuantSystem - INFO - Configuration loaded successfully.
+2026-03-31 15:15:04 - QuantSystem - INFO - Fetching FX Rates (BOC with yfinance fallback)...
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading USDCNY=X from cache: cache/USDCNYX_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading EURCNY=X from cache: cache/EURCNYX_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading EURUSD=X from cache: cache/EURUSDX_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading ^SPX from cache: cache/SPX_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading ^SPX from cache: cache/SPX_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading ^NDX from cache: cache/NDX_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading ^STOXX50E from cache: cache/STOXX50E_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading ^DAX from cache: cache/DAX_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading sh601939 from cache: cache/sh601939_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading sh601288 from cache: cache/sh601288_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading sh601988 from cache: cache/sh601988_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading sh601398 from cache: cache/sh601398_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Loading sz300059 from cache: cache/sz300059_2025Q4.parquet
+2026-03-31 15:15:04 - QuantSystem - INFO - Fetching Stooq data for GC.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:15:05 - QuantSystem - ERROR - Stooq API error for GC.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:15:05 - QuantSystem - INFO - Stooq failed for GC.F, trying yfinance fallback
+2026-03-31 15:15:05 - QuantSystem - INFO - Fetching yfinance data for GC.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:15:05 - QuantSystem - INFO - Primary GC.F failed, trying fallback GC=F
+2026-03-31 15:15:05 - QuantSystem - INFO - Loading GC=F from cache: cache/GCF_2025Q4.parquet
+2026-03-31 15:15:05 - QuantSystem - INFO - Fetching Stooq data for SI.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:15:06 - QuantSystem - ERROR - Stooq API error for SI.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:15:06 - QuantSystem - INFO - Stooq failed for SI.F, trying yfinance fallback
+2026-03-31 15:15:06 - QuantSystem - INFO - Fetching yfinance data for SI.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:15:07 - QuantSystem - INFO - Primary SI.F failed, trying fallback SI=F
+2026-03-31 15:15:07 - QuantSystem - INFO - Loading SI=F from cache: cache/SIF_2025Q4.parquet
+2026-03-31 15:15:07 - QuantSystem - INFO - Fetching Stooq data for HG.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:15:07 - QuantSystem - ERROR - Stooq API error for HG.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:15:07 - QuantSystem - INFO - Stooq failed for HG.F, trying yfinance fallback
+2026-03-31 15:15:07 - QuantSystem - INFO - Fetching yfinance data for HG.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:15:09 - QuantSystem - INFO - Primary HG.F failed, trying fallback HG=F
+2026-03-31 15:15:09 - QuantSystem - INFO - Loading HG=F from cache: cache/HGF_2025Q4.parquet
+2026-03-31 15:15:09 - QuantSystem - INFO - Loading BZ=F from cache: cache/BZF_2025Q4.parquet
+2026-03-31 15:15:09 - QuantSystem - INFO - Loading CL=F from cache: cache/CLF_2025Q4.parquet
+2026-03-31 15:15:09 - QuantSystem - INFO - Loading SC0 from cache: cache/SC0_2025Q4.parquet
+2026-03-31 15:15:09 - QuantSystem - INFO - HTML report generated: quarterly_analysis_report.html
+2026-03-31 15:15:09 - QuantSystem - INFO - History report saved to reports/history/Q4_2025_Analysis.txt
+2026-03-31 15:47:41 - QuantSystem - INFO - Configuration loaded successfully.
+2026-03-31 15:47:41 - QuantSystem - INFO - Fetching FX Rates (BOC with yfinance fallback)...
+2026-03-31 15:47:41 - QuantSystem - INFO - Loading USDCNY=X from cache: cache/USDCNYX_2025Q4.parquet
+2026-03-31 15:47:41 - QuantSystem - INFO - Cache for USDCNY=X does not cover lookback window; refetching.
+2026-03-31 15:47:41 - QuantSystem - INFO - Fetching yfinance data for USDCNY=X from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:42 - QuantSystem - INFO - Saved USDCNY=X to cache: cache/USDCNYX_2025Q4.parquet
+2026-03-31 15:47:42 - QuantSystem - INFO - Loading EURCNY=X from cache: cache/EURCNYX_2025Q4.parquet
+2026-03-31 15:47:42 - QuantSystem - INFO - Cache for EURCNY=X does not cover lookback window; refetching.
+2026-03-31 15:47:42 - QuantSystem - INFO - Fetching yfinance data for EURCNY=X from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:42 - QuantSystem - INFO - Saved EURCNY=X to cache: cache/EURCNYX_2025Q4.parquet
+2026-03-31 15:47:42 - QuantSystem - INFO - Loading EURUSD=X from cache: cache/EURUSDX_2025Q4.parquet
+2026-03-31 15:47:42 - QuantSystem - INFO - Cache for EURUSD=X does not cover lookback window; refetching.
+2026-03-31 15:47:42 - QuantSystem - INFO - Fetching yfinance data for EURUSD=X from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:42 - QuantSystem - INFO - Saved EURUSD=X to cache: cache/EURUSDX_2025Q4.parquet
+2026-03-31 15:47:42 - QuantSystem - INFO - Fetching Stooq data for ^SPX from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:43 - QuantSystem - ERROR - Stooq API error for ^SPX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:47:43 - QuantSystem - INFO - Stooq failed for ^SPX, trying yfinance fallback
+2026-03-31 15:47:43 - QuantSystem - INFO - Fetching yfinance data for ^SPX from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:43 - QuantSystem - INFO - Saved ^SPX to cache: cache/SPX_2025Q4.parquet
+2026-03-31 15:47:43 - QuantSystem - INFO - Fetching Stooq data for ^SPX from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:44 - QuantSystem - ERROR - Stooq API error for ^SPX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:47:44 - QuantSystem - INFO - Stooq failed for ^SPX, trying yfinance fallback
+2026-03-31 15:47:44 - QuantSystem - INFO - Fetching yfinance data for ^SPX from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:44 - QuantSystem - INFO - Saved ^SPX to cache: cache/SPX_2025Q4.parquet
+2026-03-31 15:47:44 - QuantSystem - INFO - Fetching Stooq data for ^NDX from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:45 - QuantSystem - ERROR - Stooq API error for ^NDX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:47:45 - QuantSystem - INFO - Stooq failed for ^NDX, trying yfinance fallback
+2026-03-31 15:47:45 - QuantSystem - INFO - Fetching yfinance data for ^NDX from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:45 - QuantSystem - INFO - Saved ^NDX to cache: cache/NDX_2025Q4.parquet
+2026-03-31 15:47:45 - QuantSystem - INFO - Fetching Stooq data for ^DJI from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:46 - QuantSystem - ERROR - Stooq API error for ^DJI: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:47:46 - QuantSystem - INFO - Stooq failed for ^DJI, trying yfinance fallback
+2026-03-31 15:47:46 - QuantSystem - INFO - Fetching yfinance data for ^DJI from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:46 - QuantSystem - INFO - Saved ^DJI to cache: cache/DJI_2025Q4.parquet
+2026-03-31 15:47:46 - QuantSystem - INFO - Fetching Stooq data for ^STOXX50E from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:47 - QuantSystem - ERROR - Stooq API error for ^STOXX50E: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:47:47 - QuantSystem - INFO - Stooq failed for ^STOXX50E, trying yfinance fallback
+2026-03-31 15:47:47 - QuantSystem - INFO - Fetching yfinance data for ^STOXX50E from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:47 - QuantSystem - INFO - Saved ^STOXX50E to cache: cache/STOXX50E_2025Q4.parquet
+2026-03-31 15:47:47 - QuantSystem - INFO - Fetching Stooq data for ^DAX from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:48 - QuantSystem - ERROR - Stooq API error for ^DAX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:47:48 - QuantSystem - INFO - Stooq failed for ^DAX, trying yfinance fallback
+2026-03-31 15:47:48 - QuantSystem - INFO - Fetching yfinance data for ^DAX from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:48 - QuantSystem - INFO - Fetching akshare data for sh601939 from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:53 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601939, trying fallback interfaces
+2026-03-31 15:47:56 - QuantSystem - INFO - Saved sh601939 to cache: cache/sh601939_2025Q4.parquet
+2026-03-31 15:47:56 - QuantSystem - INFO - Fetching akshare data for sh601288 from 2022-12-31 to 2025-12-31
+2026-03-31 15:47:59 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601288, trying fallback interfaces
+2026-03-31 15:48:01 - QuantSystem - INFO - Saved sh601288 to cache: cache/sh601288_2025Q4.parquet
+2026-03-31 15:48:01 - QuantSystem - INFO - Fetching akshare data for sh601988 from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:04 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601988, trying fallback interfaces
+2026-03-31 15:48:06 - QuantSystem - INFO - Saved sh601988 to cache: cache/sh601988_2025Q4.parquet
+2026-03-31 15:48:06 - QuantSystem - INFO - Fetching akshare data for sh601398 from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:08 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601398, trying fallback interfaces
+2026-03-31 15:48:09 - QuantSystem - INFO - Saved sh601398 to cache: cache/sh601398_2025Q4.parquet
+2026-03-31 15:48:10 - QuantSystem - INFO - Fetching akshare data for sz300059 from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:12 - QuantSystem - WARNING - stock_zh_a_hist failed for sz300059, trying fallback interfaces
+2026-03-31 15:48:14 - QuantSystem - INFO - Saved sz300059 to cache: cache/sz300059_2025Q4.parquet
+2026-03-31 15:48:14 - QuantSystem - INFO - Fetching Stooq data for GC.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:14 - QuantSystem - ERROR - Stooq API error for GC.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:48:14 - QuantSystem - INFO - Stooq failed for GC.F, trying yfinance fallback
+2026-03-31 15:48:14 - QuantSystem - INFO - Fetching yfinance data for GC.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:15 - QuantSystem - INFO - Primary GC.F failed, trying fallback GC=F
+2026-03-31 15:48:15 - QuantSystem - INFO - Fetching yfinance data for GC=F from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:15 - QuantSystem - INFO - Saved GC=F to cache: cache/GCF_2025Q4.parquet
+2026-03-31 15:48:15 - QuantSystem - INFO - Fetching Stooq data for SI.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:15 - QuantSystem - ERROR - Stooq API error for SI.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:48:15 - QuantSystem - INFO - Stooq failed for SI.F, trying yfinance fallback
+2026-03-31 15:48:15 - QuantSystem - INFO - Fetching yfinance data for SI.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:17 - QuantSystem - INFO - Primary SI.F failed, trying fallback SI=F
+2026-03-31 15:48:17 - QuantSystem - INFO - Fetching yfinance data for SI=F from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:17 - QuantSystem - INFO - Saved SI=F to cache: cache/SIF_2025Q4.parquet
+2026-03-31 15:48:17 - QuantSystem - INFO - Fetching Stooq data for HG.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:17 - QuantSystem - ERROR - Stooq API error for HG.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:48:17 - QuantSystem - INFO - Stooq failed for HG.F, trying yfinance fallback
+2026-03-31 15:48:17 - QuantSystem - INFO - Fetching yfinance data for HG.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:19 - QuantSystem - INFO - Primary HG.F failed, trying fallback HG=F
+2026-03-31 15:48:19 - QuantSystem - INFO - Fetching yfinance data for HG=F from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:19 - QuantSystem - INFO - Saved HG=F to cache: cache/HGF_2025Q4.parquet
+2026-03-31 15:48:19 - QuantSystem - INFO - Fetching yfinance data for BZ=F from 2022-12-31 to 2025-12-31
+2026-03-31 15:48:19 - QuantSystem - INFO - Saved BZ=F to cache: cache/BZF_2025Q4.parquet
+2026-03-31 15:48:19 - QuantSystem - INFO - HTML report generated: quarterly_analysis_report.html
+2026-03-31 15:48:19 - QuantSystem - INFO - History report saved to reports/history/Q4_2025_Analysis.txt
+2026-03-31 15:50:13 - QuantSystem - INFO - Configuration loaded successfully.
+2026-03-31 15:50:13 - QuantSystem - INFO - Fetching FX Rates (BOC with yfinance fallback)...
+2026-03-31 15:50:13 - QuantSystem - INFO - Loading USDCNY=X from cache: cache/USDCNYX_2025Q4.parquet
+2026-03-31 15:50:13 - QuantSystem - INFO - Loading EURCNY=X from cache: cache/EURCNYX_2025Q4.parquet
+2026-03-31 15:50:13 - QuantSystem - INFO - Loading EURUSD=X from cache: cache/EURUSDX_2025Q4.parquet
+2026-03-31 15:50:13 - QuantSystem - INFO - Loading ^SPX from cache: cache/SPX_2025Q4.parquet
+2026-03-31 15:50:13 - QuantSystem - INFO - Loading ^SPX from cache: cache/SPX_2025Q4.parquet
+2026-03-31 15:50:13 - QuantSystem - INFO - Loading ^NDX from cache: cache/NDX_2025Q4.parquet
+2026-03-31 15:50:13 - QuantSystem - INFO - Loading ^DJI from cache: cache/DJI_2025Q4.parquet
+2026-03-31 15:50:13 - QuantSystem - INFO - Loading ^STOXX50E from cache: cache/STOXX50E_2025Q4.parquet
+2026-03-31 15:50:13 - QuantSystem - INFO - Loading ^DAX from cache: cache/DAX_2025Q4.parquet
+2026-03-31 15:50:13 - QuantSystem - INFO - Cache for ^DAX does not cover lookback window; refetching.
+2026-03-31 15:50:13 - QuantSystem - INFO - Fetching Stooq data for ^DAX from 2022-12-31 to 2025-12-31
+2026-03-31 15:50:13 - QuantSystem - ERROR - Stooq API error for ^DAX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:50:13 - QuantSystem - INFO - Stooq failed for ^DAX, trying yfinance fallback
+2026-03-31 15:50:13 - QuantSystem - INFO - Fetching yfinance data for ^DAX from 2022-12-31 to 2025-12-31
+2026-03-31 15:50:14 - QuantSystem - INFO - Loading sh601939 from cache: cache/sh601939_2025Q4.parquet
+2026-03-31 15:50:15 - QuantSystem - INFO - Loading sh601288 from cache: cache/sh601288_2025Q4.parquet
+2026-03-31 15:50:15 - QuantSystem - INFO - Loading sh601988 from cache: cache/sh601988_2025Q4.parquet
+2026-03-31 15:50:15 - QuantSystem - INFO - Loading sh601398 from cache: cache/sh601398_2025Q4.parquet
+2026-03-31 15:50:15 - QuantSystem - INFO - Loading sz300059 from cache: cache/sz300059_2025Q4.parquet
+2026-03-31 15:50:15 - QuantSystem - INFO - Fetching Stooq data for GC.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:50:15 - QuantSystem - ERROR - Stooq API error for GC.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:50:15 - QuantSystem - INFO - Stooq failed for GC.F, trying yfinance fallback
+2026-03-31 15:50:15 - QuantSystem - INFO - Fetching yfinance data for GC.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:50:15 - QuantSystem - INFO - Primary GC.F failed, trying fallback GC=F
+2026-03-31 15:50:15 - QuantSystem - INFO - Loading GC=F from cache: cache/GCF_2025Q4.parquet
+2026-03-31 15:50:15 - QuantSystem - INFO - Fetching Stooq data for SI.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:50:15 - QuantSystem - ERROR - Stooq API error for SI.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:50:15 - QuantSystem - INFO - Stooq failed for SI.F, trying yfinance fallback
+2026-03-31 15:50:15 - QuantSystem - INFO - Fetching yfinance data for SI.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:50:17 - QuantSystem - INFO - Primary SI.F failed, trying fallback SI=F
+2026-03-31 15:50:17 - QuantSystem - INFO - Loading SI=F from cache: cache/SIF_2025Q4.parquet
+2026-03-31 15:50:17 - QuantSystem - INFO - Fetching Stooq data for HG.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:50:17 - QuantSystem - ERROR - Stooq API error for HG.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 15:50:17 - QuantSystem - INFO - Stooq failed for HG.F, trying yfinance fallback
+2026-03-31 15:50:17 - QuantSystem - INFO - Fetching yfinance data for HG.F from 2022-12-31 to 2025-12-31
+2026-03-31 15:50:19 - QuantSystem - INFO - Primary HG.F failed, trying fallback HG=F
+2026-03-31 15:50:19 - QuantSystem - INFO - Loading HG=F from cache: cache/HGF_2025Q4.parquet
+2026-03-31 15:50:19 - QuantSystem - INFO - Loading BZ=F from cache: cache/BZF_2025Q4.parquet
+2026-03-31 15:50:19 - QuantSystem - INFO - HTML report generated: quarterly_analysis_report.html
+2026-03-31 15:50:19 - QuantSystem - INFO - History report saved to reports/history/Q4_2025_Analysis.txt
+2026-03-31 16:02:46 - QuantSystem - INFO - Configuration loaded successfully.
+2026-03-31 16:02:46 - QuantSystem - INFO - Fetching FX Rates (BOC with yfinance fallback)...
+2026-03-31 16:02:46 - QuantSystem - INFO - Loading USDCNY=X from cache: cache/USDCNYX_2025Q4.parquet
+2026-03-31 16:02:46 - QuantSystem - INFO - Loading EURCNY=X from cache: cache/EURCNYX_2025Q4.parquet
+2026-03-31 16:02:46 - QuantSystem - INFO - Loading EURUSD=X from cache: cache/EURUSDX_2025Q4.parquet
+2026-03-31 16:02:46 - QuantSystem - INFO - Fetching Stooq data for ^SPX from 2022-12-31 to 2025-12-31
+2026-03-31 16:02:46 - QuantSystem - ERROR - Stooq API error for ^SPX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 16:02:46 - QuantSystem - INFO - Stooq failed for ^SPX, trying yfinance fallback
+2026-03-31 16:02:46 - QuantSystem - INFO - Fetching yfinance data for ^SPX from 2022-12-31 to 2025-12-31
+2026-03-31 16:02:47 - QuantSystem - INFO - Saved ^SPX to cache: cache/SPX_2025Q4.parquet
+2026-03-31 16:02:47 - QuantSystem - INFO - Fetching Stooq data for ^SPX from 2022-12-31 to 2025-12-31
+2026-03-31 16:02:47 - QuantSystem - ERROR - Stooq API error for ^SPX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 16:02:47 - QuantSystem - INFO - Stooq failed for ^SPX, trying yfinance fallback
+2026-03-31 16:02:47 - QuantSystem - INFO - Fetching yfinance data for ^SPX from 2022-12-31 to 2025-12-31
+2026-03-31 16:02:47 - QuantSystem - INFO - Saved ^SPX to cache: cache/SPX_2025Q4.parquet
+2026-03-31 16:02:47 - QuantSystem - INFO - Fetching Stooq data for ^NDX from 2022-12-31 to 2025-12-31
+2026-03-31 16:02:48 - QuantSystem - ERROR - Stooq API error for ^NDX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 16:02:48 - QuantSystem - INFO - Stooq failed for ^NDX, trying yfinance fallback
+2026-03-31 16:02:48 - QuantSystem - INFO - Fetching yfinance data for ^NDX from 2022-12-31 to 2025-12-31
+2026-03-31 16:02:48 - QuantSystem - INFO - Saved ^NDX to cache: cache/NDX_2025Q4.parquet
+2026-03-31 16:02:48 - QuantSystem - INFO - Fetching Stooq data for ^STOXX50E from 2022-12-31 to 2025-12-31
+2026-03-31 16:02:48 - QuantSystem - ERROR - Stooq API error for ^STOXX50E: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 16:02:48 - QuantSystem - INFO - Stooq failed for ^STOXX50E, trying yfinance fallback
+2026-03-31 16:02:48 - QuantSystem - INFO - Fetching yfinance data for ^STOXX50E from 2022-12-31 to 2025-12-31
+2026-03-31 16:02:49 - QuantSystem - INFO - Saved ^STOXX50E to cache: cache/STOXX50E_2025Q4.parquet
+2026-03-31 16:02:49 - QuantSystem - INFO - Fetching Stooq data for ^DAX from 2022-12-31 to 2025-12-31
+2026-03-31 16:02:49 - QuantSystem - ERROR - Stooq API error for ^DAX: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 16:02:49 - QuantSystem - INFO - Stooq failed for ^DAX, trying yfinance fallback
+2026-03-31 16:02:49 - QuantSystem - INFO - Fetching yfinance data for ^DAX from 2022-12-31 to 2025-12-31
+2026-03-31 16:02:49 - QuantSystem - INFO - Fetching akshare data for sh601939 from 2022-12-31 to 2025-12-31
+2026-03-31 16:02:52 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601939, trying fallback interfaces
+2026-03-31 16:02:55 - QuantSystem - INFO - Saved sh601939 to cache: cache/sh601939_2025Q4.parquet
+2026-03-31 16:02:55 - QuantSystem - INFO - Fetching akshare data for sh601288 from 2022-12-31 to 2025-12-31
+2026-03-31 16:02:59 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601288, trying fallback interfaces
+2026-03-31 16:03:01 - QuantSystem - INFO - Saved sh601288 to cache: cache/sh601288_2025Q4.parquet
+2026-03-31 16:03:01 - QuantSystem - INFO - Fetching akshare data for sh601988 from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:03 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601988, trying fallback interfaces
+2026-03-31 16:03:06 - QuantSystem - INFO - Saved sh601988 to cache: cache/sh601988_2025Q4.parquet
+2026-03-31 16:03:06 - QuantSystem - INFO - Fetching akshare data for sh601398 from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:09 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601398, trying fallback interfaces
+2026-03-31 16:03:11 - QuantSystem - INFO - Saved sh601398 to cache: cache/sh601398_2025Q4.parquet
+2026-03-31 16:03:11 - QuantSystem - INFO - Fetching akshare data for sz300059 from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:18 - QuantSystem - WARNING - stock_zh_a_hist failed for sz300059, trying fallback interfaces
+2026-03-31 16:03:20 - QuantSystem - INFO - Saved sz300059 to cache: cache/sz300059_2025Q4.parquet
+2026-03-31 16:03:20 - QuantSystem - INFO - Fetching Stooq data for GC.F from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:20 - QuantSystem - ERROR - Stooq API error for GC.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 16:03:20 - QuantSystem - INFO - Stooq failed for GC.F, trying yfinance fallback
+2026-03-31 16:03:20 - QuantSystem - INFO - Fetching yfinance data for GC.F from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:21 - QuantSystem - INFO - Primary GC.F failed, trying fallback GC=F
+2026-03-31 16:03:21 - QuantSystem - INFO - Fetching yfinance data for GC=F from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:21 - QuantSystem - INFO - Saved GC=F to cache: cache/GCF_2025Q4.parquet
+2026-03-31 16:03:21 - QuantSystem - INFO - Fetching Stooq data for SI.F from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:21 - QuantSystem - ERROR - Stooq API error for SI.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 16:03:21 - QuantSystem - INFO - Stooq failed for SI.F, trying yfinance fallback
+2026-03-31 16:03:21 - QuantSystem - INFO - Fetching yfinance data for SI.F from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:23 - QuantSystem - INFO - Primary SI.F failed, trying fallback SI=F
+2026-03-31 16:03:23 - QuantSystem - INFO - Fetching yfinance data for SI=F from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:23 - QuantSystem - INFO - Saved SI=F to cache: cache/SIF_2025Q4.parquet
+2026-03-31 16:03:23 - QuantSystem - INFO - Fetching Stooq data for HG.F from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:23 - QuantSystem - ERROR - Stooq API error for HG.F: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 16:03:23 - QuantSystem - INFO - Stooq failed for HG.F, trying yfinance fallback
+2026-03-31 16:03:23 - QuantSystem - INFO - Fetching yfinance data for HG.F from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:25 - QuantSystem - INFO - Primary HG.F failed, trying fallback HG=F
+2026-03-31 16:03:25 - QuantSystem - INFO - Fetching yfinance data for HG=F from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:25 - QuantSystem - INFO - Saved HG=F to cache: cache/HGF_2025Q4.parquet
+2026-03-31 16:03:25 - QuantSystem - INFO - Fetching yfinance data for BZ=F from 2022-12-31 to 2025-12-31
+2026-03-31 16:03:26 - QuantSystem - INFO - Saved BZ=F to cache: cache/BZF_2025Q4.parquet
+2026-03-31 16:03:26 - QuantSystem - INFO - HTML report generated: quarterly_analysis_report.html
+2026-03-31 16:03:26 - QuantSystem - INFO - PDF report generated: quarterly_analysis_report.pdf
+2026-03-31 16:03:26 - QuantSystem - INFO - History report saved to reports/history/Q4_2025_Analysis.txt
+2026-03-31 16:37:34 - QuantSystem - INFO - Configuration loaded successfully.
+2026-03-31 16:37:34 - QuantSystem - INFO - Fetching FX Rates (BOC with yfinance fallback)...
+2026-03-31 16:37:34 - QuantSystem - INFO - Loading USDCNY=X from cache: cache/USDCNYX_2025Q4.parquet
+2026-03-31 16:37:34 - QuantSystem - INFO - Loading EURCNY=X from cache: cache/EURCNYX_2025Q4.parquet
+2026-03-31 16:37:34 - QuantSystem - INFO - Loading EURUSD=X from cache: cache/EURUSDX_2025Q4.parquet
+2026-03-31 16:37:34 - QuantSystem - INFO - Fetching Stooq data for ^GSPC from 2022-12-31 to 2025-12-31
+2026-03-31 16:37:35 - QuantSystem - ERROR - Stooq API error for ^GSPC: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 16:37:35 - QuantSystem - INFO - Stooq failed for ^GSPC, trying yfinance fallback
+2026-03-31 16:37:35 - QuantSystem - INFO - Fetching yfinance data for ^GSPC from 2022-12-31 to 2025-12-31
+2026-03-31 16:37:35 - QuantSystem - INFO - Saved ^GSPC to cache: cache/GSPC_2025Q4.parquet
+2026-03-31 16:37:35 - QuantSystem - INFO - Fetching yfinance data for ^GSPC from 2022-12-31 to 2025-12-31
+2026-03-31 16:37:35 - QuantSystem - INFO - Saved ^GSPC to cache: cache/GSPC_2025Q4.parquet
+2026-03-31 16:37:35 - QuantSystem - INFO - Fetching yfinance data for ^NDX from 2022-12-31 to 2025-12-31
+2026-03-31 16:37:35 - QuantSystem - INFO - Saved ^NDX to cache: cache/NDX_2025Q4.parquet
+2026-03-31 16:37:35 - QuantSystem - INFO - Fetching yfinance data for ^STOXX50E from 2022-12-31 to 2025-12-31
+2026-03-31 16:37:36 - QuantSystem - INFO - Saved ^STOXX50E to cache: cache/STOXX50E_2025Q4.parquet
+2026-03-31 16:37:36 - QuantSystem - INFO - Fetching yfinance data for ^GDAXI from 2022-12-31 to 2025-12-31
+2026-03-31 16:37:36 - QuantSystem - INFO - Saved ^GDAXI to cache: cache/GDAXI_2025Q4.parquet
+2026-03-31 16:37:36 - QuantSystem - INFO - Fetching akshare data for sh601939 from 2022-12-31 to 2025-12-31
+2026-03-31 16:37:42 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601939, trying fallback interfaces
+2026-03-31 16:37:45 - QuantSystem - INFO - Saved sh601939 to cache: cache/sh601939_2025Q4.parquet
+2026-03-31 16:37:45 - QuantSystem - INFO - Fetching akshare data for sh601288 from 2022-12-31 to 2025-12-31
+2026-03-31 16:37:48 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601288, trying fallback interfaces
+2026-03-31 16:37:50 - QuantSystem - INFO - Saved sh601288 to cache: cache/sh601288_2025Q4.parquet
+2026-03-31 16:37:50 - QuantSystem - INFO - Fetching akshare data for sh601988 from 2022-12-31 to 2025-12-31
+2026-03-31 16:37:52 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601988, trying fallback interfaces
+2026-03-31 16:37:54 - QuantSystem - INFO - Saved sh601988 to cache: cache/sh601988_2025Q4.parquet
+2026-03-31 16:37:54 - QuantSystem - INFO - Fetching akshare data for sh601398 from 2022-12-31 to 2025-12-31
+2026-03-31 16:37:57 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601398, trying fallback interfaces
+2026-03-31 16:37:59 - QuantSystem - INFO - Saved sh601398 to cache: cache/sh601398_2025Q4.parquet
+2026-03-31 16:37:59 - QuantSystem - INFO - Fetching akshare data for sz300059 from 2022-12-31 to 2025-12-31
+2026-03-31 16:38:02 - QuantSystem - WARNING - stock_zh_a_hist failed for sz300059, trying fallback interfaces
+2026-03-31 16:38:04 - QuantSystem - INFO - Saved sz300059 to cache: cache/sz300059_2025Q4.parquet
+2026-03-31 16:38:04 - QuantSystem - INFO - Fetching yfinance data for GC=F from 2022-12-31 to 2025-12-31
+2026-03-31 16:38:04 - QuantSystem - INFO - Saved GC=F to cache: cache/GCF_2025Q4.parquet
+2026-03-31 16:38:04 - QuantSystem - INFO - Fetching yfinance data for SI=F from 2022-12-31 to 2025-12-31
+2026-03-31 16:38:05 - QuantSystem - INFO - Saved SI=F to cache: cache/SIF_2025Q4.parquet
+2026-03-31 16:38:05 - QuantSystem - INFO - Fetching yfinance data for HG=F from 2022-12-31 to 2025-12-31
+2026-03-31 16:38:05 - QuantSystem - INFO - Saved HG=F to cache: cache/HGF_2025Q4.parquet
+2026-03-31 16:38:05 - QuantSystem - INFO - Fetching yfinance data for BZ=F from 2022-12-31 to 2025-12-31
+2026-03-31 16:38:05 - QuantSystem - INFO - Saved BZ=F to cache: cache/BZF_2025Q4.parquet
+2026-03-31 16:38:05 - QuantSystem - INFO - HTML report generated: quarterly_analysis_report.html
+2026-03-31 16:38:05 - QuantSystem - INFO - PDF report generated: quarterly_analysis_report.pdf
+2026-03-31 16:38:05 - QuantSystem - INFO - History report saved to reports/history/Q4_2025_Analysis.txt
+2026-03-31 16:43:11 - QuantSystem - INFO - Configuration loaded successfully.
+2026-03-31 16:43:11 - QuantSystem - INFO - Fetching FX Rates (BOC with yfinance fallback)...
+2026-03-31 16:43:11 - QuantSystem - INFO - Loading USDCNY=X from cache: cache/USDCNYX_2025Q4.parquet
+2026-03-31 16:43:11 - QuantSystem - INFO - Loading EURCNY=X from cache: cache/EURCNYX_2025Q4.parquet
+2026-03-31 16:43:11 - QuantSystem - INFO - Loading EURUSD=X from cache: cache/EURUSDX_2025Q4.parquet
+2026-03-31 16:43:11 - QuantSystem - INFO - Fetching Stooq data for ^GSPC from 2022-12-31 to 2025-12-31
+2026-03-31 16:43:11 - QuantSystem - ERROR - Stooq API error for ^GSPC: StooqDailyReader request returned no data; check URL for invalid inputs: https://stooq.com/q/d/l/
+2026-03-31 16:43:11 - QuantSystem - INFO - Stooq failed for ^GSPC, trying yfinance fallback
+2026-03-31 16:43:11 - QuantSystem - INFO - Fetching yfinance data for ^GSPC from 2022-12-31 to 2025-12-31
+2026-03-31 16:43:12 - QuantSystem - INFO - Saved ^GSPC to cache: cache/GSPC_2025Q4.parquet
+2026-03-31 16:43:12 - QuantSystem - INFO - Fetching yfinance data for ^GSPC from 2022-12-31 to 2025-12-31
+2026-03-31 16:43:12 - QuantSystem - INFO - Saved ^GSPC to cache: cache/GSPC_2025Q4.parquet
+2026-03-31 16:43:12 - QuantSystem - INFO - Fetching yfinance data for ^NDX from 2022-12-31 to 2025-12-31
+2026-03-31 16:43:12 - QuantSystem - INFO - Saved ^NDX to cache: cache/NDX_2025Q4.parquet
+2026-03-31 16:43:12 - QuantSystem - INFO - Fetching yfinance data for ^STOXX50E from 2022-12-31 to 2025-12-31
+2026-03-31 16:43:12 - QuantSystem - INFO - Saved ^STOXX50E to cache: cache/STOXX50E_2025Q4.parquet
+2026-03-31 16:43:12 - QuantSystem - INFO - Fetching yfinance data for ^GDAXI from 2022-12-31 to 2025-12-31
+2026-03-31 16:43:13 - QuantSystem - INFO - Saved ^GDAXI to cache: cache/GDAXI_2025Q4.parquet
+2026-03-31 16:43:13 - QuantSystem - INFO - Fetching akshare data for sh601939 from 2022-12-31 to 2025-12-31
+2026-03-31 16:43:22 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601939, trying fallback interfaces
+2026-03-31 16:43:27 - QuantSystem - INFO - Saved sh601939 to cache: cache/sh601939_2025Q4.parquet
+2026-03-31 16:43:27 - QuantSystem - INFO - Fetching akshare data for sh601288 from 2022-12-31 to 2025-12-31
+2026-03-31 16:43:30 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601288, trying fallback interfaces
+2026-03-31 16:43:32 - QuantSystem - INFO - Saved sh601288 to cache: cache/sh601288_2025Q4.parquet
+2026-03-31 16:43:32 - QuantSystem - INFO - Fetching akshare data for sh601988 from 2022-12-31 to 2025-12-31
+2026-03-31 16:43:49 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601988, trying fallback interfaces
+2026-03-31 16:43:50 - QuantSystem - INFO - Saved sh601988 to cache: cache/sh601988_2025Q4.parquet
+2026-03-31 16:43:50 - QuantSystem - INFO - Fetching akshare data for sh601398 from 2022-12-31 to 2025-12-31
+2026-03-31 16:43:55 - QuantSystem - WARNING - stock_zh_a_hist failed for sh601398, trying fallback interfaces
+2026-03-31 16:43:58 - QuantSystem - INFO - Saved sh601398 to cache: cache/sh601398_2025Q4.parquet
+2026-03-31 16:43:58 - QuantSystem - INFO - Fetching akshare data for sz300059 from 2022-12-31 to 2025-12-31
+2026-03-31 16:44:03 - QuantSystem - WARNING - stock_zh_a_hist failed for sz300059, trying fallback interfaces
+2026-03-31 16:44:05 - QuantSystem - INFO - Saved sz300059 to cache: cache/sz300059_2025Q4.parquet
+2026-03-31 16:44:05 - QuantSystem - INFO - Fetching yfinance data for GC=F from 2022-12-31 to 2025-12-31
+2026-03-31 16:44:05 - QuantSystem - INFO - Saved GC=F to cache: cache/GCF_2025Q4.parquet
+2026-03-31 16:44:05 - QuantSystem - INFO - Fetching yfinance data for SI=F from 2022-12-31 to 2025-12-31
+2026-03-31 16:44:06 - QuantSystem - INFO - Saved SI=F to cache: cache/SIF_2025Q4.parquet
+2026-03-31 16:44:06 - QuantSystem - INFO - Fetching yfinance data for HG=F from 2022-12-31 to 2025-12-31
+2026-03-31 16:44:06 - QuantSystem - INFO - Saved HG=F to cache: cache/HGF_2025Q4.parquet
+2026-03-31 16:44:06 - QuantSystem - INFO - Fetching yfinance data for BZ=F from 2022-12-31 to 2025-12-31
+2026-03-31 16:44:06 - QuantSystem - INFO - Saved BZ=F to cache: cache/BZF_2025Q4.parquet
+2026-03-31 16:44:06 - QuantSystem - INFO - HTML report generated: quarterly_analysis_report.html
+2026-03-31 16:44:08 - QuantSystem - INFO - PDF report generated: quarterly_analysis_report.pdf
+2026-03-31 16:44:08 - QuantSystem - INFO - History report saved to reports/history/Q4_2025_Analysis.txt
+2026-03-31 19:26:00 - QuantSystem - INFO - Configuration loaded successfully.
+2026-03-31 19:26:00 - QuantSystem - INFO - Fetching FX Rates (BOC with yfinance fallback)...
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading USDCNY=X from cache: cache/USDCNYX_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading EURCNY=X from cache: cache/EURCNYX_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading EURUSD=X from cache: cache/EURUSDX_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading ^GSPC from cache: cache/GSPC_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading ^GSPC from cache: cache/GSPC_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading ^NDX from cache: cache/NDX_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading ^STOXX50E from cache: cache/STOXX50E_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading ^GDAXI from cache: cache/GDAXI_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading sh601939 from cache: cache/sh601939_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading sh601288 from cache: cache/sh601288_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading sh601988 from cache: cache/sh601988_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading sh601398 from cache: cache/sh601398_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading sz300059 from cache: cache/sz300059_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading GC=F from cache: cache/GCF_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading SI=F from cache: cache/SIF_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading HG=F from cache: cache/HGF_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - Loading BZ=F from cache: cache/BZF_2025Q4.parquet
+2026-03-31 19:26:00 - QuantSystem - INFO - HTML report generated: quarterly_analysis_report.html
+2026-03-31 19:26:01 - QuantSystem - INFO - PDF report generated: quarterly_analysis_report.pdf
+2026-03-31 19:26:01 - QuantSystem - INFO - History report saved to reports/history/Q4_2025_Analysis.txt
+2026-03-31 19:29:11 - QuantSystem - INFO - Configuration loaded successfully.
+2026-03-31 19:29:11 - QuantSystem - INFO - Fetching FX Rates (BOC with yfinance fallback)...
+2026-03-31 19:29:11 - QuantSystem - INFO - Loading USDCNY=X from cache: cache/USDCNYX_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading EURCNY=X from cache: cache/EURCNYX_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading EURUSD=X from cache: cache/EURUSDX_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading ^GSPC from cache: cache/GSPC_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading ^GSPC from cache: cache/GSPC_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading ^NDX from cache: cache/NDX_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading ^STOXX50E from cache: cache/STOXX50E_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading ^GDAXI from cache: cache/GDAXI_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading sh601939 from cache: cache/sh601939_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading sh601288 from cache: cache/sh601288_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading sh601988 from cache: cache/sh601988_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading sh601398 from cache: cache/sh601398_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading sz300059 from cache: cache/sz300059_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading GC=F from cache: cache/GCF_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading SI=F from cache: cache/SIF_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading HG=F from cache: cache/HGF_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - Loading BZ=F from cache: cache/BZF_2025Q4.parquet
+2026-03-31 19:29:12 - QuantSystem - INFO - HTML report generated: quarterly_analysis_report.html
+2026-03-31 19:29:12 - QuantSystem - INFO - PDF report generated: quarterly_analysis_report.pdf
+2026-03-31 19:29:12 - QuantSystem - INFO - History report saved to reports/history/Q4_2025_Analysis.txt

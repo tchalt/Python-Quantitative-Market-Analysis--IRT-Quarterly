@@ -4,16 +4,39 @@
 # --- Global Market (Americas, Europe) ---
 global:
   americas:
-    indices: ["^SPX", "^NDX"]
-    commodities: ["GC.F", "SI.F", "HG.F"] # Stooq futures
-    commodities_fallback: ["GC=F", "SI=F", "HG=F"] # yfinance futures
+    indices: ["^GSPC", "^NDX"]
+    commodities: ["GC=F", "SI=F", "HG=F"]
+    commodities_fallback: []
+    oil: ["BZ=F"] # Brent
+    sources:
+      "^GSPC": "yfinance"
+      "^NDX": "yfinance"
+      "GC=F": "yfinance"
+      "SI=F": "yfinance"
+      "HG=F": "yfinance"
+      "BZ=F": "yfinance"
+    fallbacks:
+      "^GSPC": []
+      "^NDX": []
+      "GC=F": []
+      "SI=F": []
+      "HG=F": []
+      "BZ=F": []
   europe:
-    indices: ["^STOXX50E", "^DAX"] # Changed ^STX50E to ^STOXX50E
+    indices: ["^STOXX50E", "^GDAXI"] # Euro Stoxx 50, DAX
     shipping: ["BDI.INDEX"]
     banks: ["ATEA.NO"]
+    sources:
+      "^STOXX50E": "yfinance"
+      "^GDAXI": "yfinance"
+    fallbacks:
+      "^STOXX50E": []
+      "^GDAXI": []
   risk_free_rate:
     symbol: "^TNX.US"
     default_value: 0.045
+  benchmark:
+    symbol: "^GSPC"
 
 # --- Domestic Market (China A-Shares) ---
 domestic:
@@ -21,6 +44,17 @@ domestic:
   banks: ["sh601939", "sh601288", "sh601988", "sh601398"]
   others: ["sz300059"]
   commodities: ["AU0", "AG0", "CU0"]
+  oil: []
+  sources:
+    "sh000001": "akshare"
+    "sz399001": "akshare"
+    "sh000300": "akshare"
+    "sh601939": "akshare"
+    "sh601288": "akshare"
+    "sh601988": "akshare"
+    "sh601398": "akshare"
+    "sz300059": "akshare"
+  fallbacks: {}
   risk_free_rate:
     symbol: "CBY"
     default_value: 0.025
@@ -37,6 +71,7 @@ analysis:
   period_label: "2025 Q4 Analysis"
   start_date: "2025-10-01"
   end_date: "2025-12-31"
+  lookback_years: 3
   cache_dir: "cache"
   log_file: "logs/quant_system.log"
 

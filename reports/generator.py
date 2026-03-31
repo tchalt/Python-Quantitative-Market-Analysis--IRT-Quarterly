@@ -54,6 +54,8 @@ class ReportGenerator:
         table.add_column("Sharpe", justify="right")
         table.add_column("Alpha", justify="right")
         table.add_column("Beta", justify="right")
+        table.add_column("Hurst", justify="right")
+        table.add_column("N", justify="right")
         table.add_column("Outlook", style="italic")
 
         for asset in assets:
@@ -70,15 +72,92 @@ class ReportGenerator:
                 f"{asset['risk'].get('sharpe', 'N/A')}",
                 f"{asset['risk'].get('alpha', 'N/A')}",
                 f"{asset['risk'].get('beta', 'N/A')}",
+                f"{asset['risk'].get('hurst', 'N/A')}",
+                f"{asset.get('quality', {}).get('regression_n', 'N/A')}",
                 outlook
             )
         return table
 
-    def generate_terminal_report(self, regional_data, fx_rates, anomalies):
+    def summarize_regions(self, regional_data):
+        summaries = []
+        for region, assets in regional_data.items():
+            if not assets:
+                continue
+
+            returns = [a.get("total_return") for a in assets if isinstance(a.get("total_return"), (int, float))]
+            sharpes = [a.get("risk", {}).get("sharpe") for a in assets if isinstance(a.get("risk", {}).get("sharpe"), (int, float))]
+            betas = [a.get("risk", {}).get("beta") for a in assets if isinstance(a.get("risk", {}).get("beta"), (int, float))]
+            hursts = [a.get("risk", {}).get("hurst") for a in assets if isinstance(a.get("risk", {}).get("hurst"), (int, float))]
+
+            best = None
+            worst = None
+            for a in assets:
+                r = a.get("total_return")
+                if not isinstance(r, (int, float)):
+                    continue
+                if best is None or r > best.get("total_return", -1e9):
+                    best = a
+                if worst is None or r < worst.get("total_return", 1e9):
+                    worst = a
+
+            avg_return = sum(returns) / len(returns) if returns else None
+            avg_sharpe = sum(sharpes) / len(sharpes) if sharpes else None
+            avg_beta = sum(betas) / len(betas) if betas else None
+            avg_hurst = sum(hursts) / len(hursts) if hursts else None
+
+            tone = "Neutral"
+            if avg_sharpe is not None and avg_sharpe > 1:
+                tone = "Constructive"
+            if avg_sharpe is not None and avg_sharpe < 0:
+                tone = "Cautious"
+
+            persistence = None
+            if avg_hurst is not None:
+                if avg_hurst > 0.55:
+                    persistence = "Trending"
+                elif avg_hurst < 0.45:
+                    persistence = "Mean-Reverting"
+                else:
+                    persistence = "Random-Walk-like"
+
+            line = f"{region.upper()}: "
+            if avg_return is not None:
+                line += f"avg return={avg_return:.2%} | "
+            if avg_sharpe is not None:
+                line += f"avg Sharpe={avg_sharpe:.2f} | "
+            if avg_beta is not None:
+                line += f"avg Beta={avg_beta:.2f} | "
+            if avg_hurst is not None:
+                line += f"avg Hurst={avg_hurst:.2f} ({persistence}) | "
+            line += f"tone={tone}"
+
+            if best is not None and worst is not None:
+                line += f" | best={best['name']} ({best['total_return']:.2%})"
+                line += f" | worst={worst['name']} ({worst['total_return']:.2%})"
+
+            summaries.append({
+                "region": region,
+                "text": line,
+                "tone": tone,
+                "persistence": persistence,
+                "avg_return": f"{avg_return:.2%}" if avg_return is not None else "N/A",
+                "avg_sharpe": f"{avg_sharpe:.2f}" if avg_sharpe is not None else "N/A",
+                "avg_beta": f"{avg_beta:.2f}" if avg_beta is not None else "N/A",
+                "avg_hurst": f"{avg_hurst:.2f}" if avg_hurst is not None else "N/A",
+                "best": f"{best['name']} ({best['total_return']:.2%})" if best is not None else "N/A",
+                "worst": f"{worst['name']} ({worst['total_return']:.2%})" if worst is not None else "N/A",
+            })
+
+        return summaries
+
+    def generate_terminal_report(self, regional_data, fx_rates, anomalies, period_label=None):
         """
         Prints region-based tables and an anomaly warning section.
         """
-        self.console.print(Panel("[bold white]Global Quarterly Quantitative Analysis Report[/bold white]", style="bold magenta", expand=False))
+        title = "Global Quarterly Quantitative Analysis Report"
+        if period_label:
+            title = f"{period_label} - Global Quantitative Report"
+        self.console.print(Panel(f"[bold white]{title}[/bold white]", style="bold magenta", expand=False))
 
         # 1. Print Region Tables
         for region, assets in regional_data.items():
@@ -104,6 +183,13 @@ class ReportGenerator:
             
             self.console.print(Panel(warning_text, title="Risk Alerts", border_style="yellow"))
 
+        summaries = self.summarize_regions(regional_data)
+        if summaries:
+            summary_text = Text("SUMMARY BY REGION\n", style="bold white")
+            for s in summaries:
+                summary_text.append(f"• {s['text']}\n", style="white")
+            self.console.print(Panel(summary_text, title="Executive Summary", border_style="white"))
+
     def save_history_report(self, regional_data, fx_rates, anomalies, period="Q1_2026"):
         """
         Saves a permanent record of the analysis to reports/history/.
@@ -122,7 +208,12 @@ class ReportGenerator:
                 f.write(f"REGION: {region.upper()}\n")
                 f.write("-" * 30 + "\n")
                 for asset in assets:
-                    f.write(f"{asset['name']}: Return={asset['total_return']:.2%}, Beta={asset['risk'].get('beta')}, Outlook={self.generate_outlook(asset)}\n")
+                    f.write(
+                        f"{asset['name']}: Return={asset['total_return']:.2%}, "
+                        f"Beta={asset['risk'].get('beta')}, "
+                        f"Hurst={asset['risk'].get('hurst')}, "
+                        f"Outlook={self.generate_outlook(asset)}\n"
+                    )
                 f.write("\n")
             
             f.write("CURRENCY WATCH\n")
@@ -133,6 +224,12 @@ class ReportGenerator:
                 f.write("\nRISK ALERTS\n")
                 for anomaly in anomalies:
                     f.write(f"! {anomaly['asset']}: {anomaly['message']}\n")
+
+            summaries = self.summarize_regions(regional_data)
+            if summaries:
+                f.write("\nEXECUTIVE SUMMARY\n")
+                for s in summaries:
+                    f.write(f"- {s['text']}\n")
         
         logger.info(f"History report saved to {filepath}")
         return filepath
@@ -146,13 +243,15 @@ class ReportGenerator:
         # Enrich assets with outlooks
         for asset in processed_assets:
             asset['outlook'] = self.generate_outlook(asset)
+        summaries = self.summarize_regions(self._group_assets_by_region(processed_assets))
 
         html_content = template.render(
             timestamp=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             period=period_label,
             assets=processed_assets,
             fx_rates=fx_rates,
-            anomalies=anomalies
+            anomalies=anomalies,
+            summaries=summaries
         )
 
         with open(filename, "w", encoding="utf-8") as f:
@@ -161,3 +260,77 @@ class ReportGenerator:
         logger.info(f"HTML report generated: {filename}")
         self.console.print(Panel(f"HTML report saved to: [bold cyan]{filename}[/bold cyan]"))
 
+    def _group_assets_by_region(self, processed_assets):
+        groups = {}
+        for a in processed_assets:
+            region = a.get("region", "unknown")
+            groups.setdefault(region, []).append(a)
+        return groups
+
+    def generate_pdf_report(self, processed_assets, fx_rates, anomalies, period_label="Analysis", filename="quarterly_analysis_report.pdf"):
+        try:
+            from reportlab.lib.pagesizes import letter
+            from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table as PdfTable, TableStyle
+            from reportlab.lib.styles import getSampleStyleSheet
+            from reportlab.lib import colors
+        except Exception as e:
+            logger.error(f"PDF generation unavailable (reportlab not installed): {str(e)}")
+            return None
+
+        styles = getSampleStyleSheet()
+        doc = SimpleDocTemplate(filename, pagesize=letter)
+        story = []
+
+        story.append(Paragraph(f"{period_label}", styles["Title"]))
+        story.append(Spacer(1, 12))
+        story.append(Paragraph("Currency Watch", styles["Heading2"]))
+        for k, v in fx_rates.items():
+            story.append(Paragraph(f"{k}: {v}", styles["Normal"]))
+        story.append(Spacer(1, 12))
+
+        story.append(Paragraph("Portfolio Metrics (Top-Level)", styles["Heading2"]))
+        data = [["Ticker", "Q-Change", "Sharpe", "Alpha", "Beta", "Hurst", "N", "Outlook"]]
+        for a in processed_assets:
+            r = a.get("risk", {})
+            data.append([
+                a.get("name", ""),
+                f"{a.get('total_return', 0):.2%}" if isinstance(a.get("total_return"), (int, float)) else "N/A",
+                r.get("sharpe", "N/A"),
+                r.get("alpha", "N/A"),
+                r.get("beta", "N/A"),
+                r.get("hurst", "N/A"),
+                a.get("quality", {}).get("regression_n", "N/A"),
+                a.get("outlook", "")
+            ])
+
+        data[0] = ["Ticker", "Q-Change", "Sharpe", "Alpha", "Beta", "Hurst", "N", "Outlook"]
+        tbl = PdfTable(data, repeatRows=1)
+        tbl.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#34495e")),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
+            ("FONTSIZE", (0, 0), (-1, -1), 8),
+            ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        ]))
+        story.append(tbl)
+        story.append(Spacer(1, 12))
+
+        if anomalies:
+            story.append(Paragraph("Risk Alerts", styles["Heading2"]))
+            for a in anomalies:
+                story.append(Paragraph(f"- {a.get('asset')}: {a.get('message')}", styles["Normal"]))
+            story.append(Spacer(1, 12))
+
+        summaries = self.summarize_regions(self._group_assets_by_region(processed_assets))
+        if summaries:
+            story.append(Paragraph("Executive Summary", styles["Heading2"]))
+            for s in summaries:
+                story.append(Paragraph(f"- {s['text']}", styles["Normal"]))
+
+        try:
+            doc.build(story)
+            logger.info(f"PDF report generated: {filename}")
+            return filename
+        except Exception as e:
+            logger.error(f"Failed to generate PDF report: {str(e)}")
+            return None

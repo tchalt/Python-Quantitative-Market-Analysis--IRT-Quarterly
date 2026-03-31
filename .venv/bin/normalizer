@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/tangtaowei/Desktop/MC PF/Model/.venv/bin/python3.11" "$0" "$@"
+'''exec' "/Users/tangtaowei/Desktop/MC PF/Model/.venv/bin/python3" "$0" "$@"
 ' '''
 import sys
 from charset_normalizer.cli import cli_detect

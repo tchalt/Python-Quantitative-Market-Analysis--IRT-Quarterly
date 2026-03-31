@@ -120,8 +120,28 @@ class DataFetcher:
 
             else:
                 # Futures/Commodities
-                if ticker in ["AU0", "AG0", "CU0"]:
-                    mapping = {"AU0": "GC=F", "AG0": "SI=F", "CU0": "HG=F"}
+                if ticker in ["AU0", "AG0", "CU0", "SC0"]:
+                    try:
+                        df = ak.futures_zh_daily_sina(symbol=ticker)
+                        if not df.empty:
+                            rename_map = {
+                                'date': 'Date', 'open': 'Open', 'high': 'High', 'low': 'Low', 'close': 'Close', 'volume': 'Volume',
+                                '日期': 'Date', '开盘': 'Open', '最高': 'High', '最低': 'Low', '收盘': 'Close', '成交量': 'Volume'
+                            }
+                            df = df.rename(columns=rename_map)
+                            if 'Date' in df.columns:
+                                df['Date'] = pd.to_datetime(df['Date'])
+                                df = df.set_index('Date')
+                            df = df.sort_index(ascending=True)
+                            df = df.loc[start_date:end_date]
+                            if 'Close' in df.columns and 'Adj Close' not in df.columns:
+                                df['Adj Close'] = df['Close']
+                            if not df.empty:
+                                return df
+                    except Exception as e:
+                        logger.warning(f"AkShare futures_zh_daily_sina failed for {ticker}: {str(e)}")
+
+                    mapping = {"AU0": "GC=F", "AG0": "SI=F", "CU0": "HG=F", "SC0": "SC=F"}
                     return self.fetch_yfinance_data(mapping[ticker], start_date, end_date)
                 df = pd.DataFrame()
                 
@@ -142,28 +162,99 @@ class DataFetcher:
         
         if start_date is None: start_date = current_info['start_date']
         if end_date is None: end_date = current_info['end_date']
+        lookback_years = self.config.get("analysis", {}).get("lookback_years", 0)
+        required_start = None
+        requested_start = start_date
+        requested_end = end_date
+        try:
+            if lookback_years and start_date and end_date:
+                end_ts = pd.Timestamp(end_date)
+                required_start = end_ts - pd.DateOffset(years=int(lookback_years))
+                lookback_start = required_start.strftime("%Y-%m-%d")
+                if lookback_start < start_date:
+                    start_date = lookback_start
+        except Exception:
+            pass
 
         if not force_refresh:
             cached_df = self.cache.get(ticker, period)
             if cached_df is not None and not cached_df.empty:
-                return cached_df
+                if required_start is None:
+                    return cached_df
 
-        df = pd.DataFrame()
+                try:
+                    idx = cached_df.index
+                    if not isinstance(idx, pd.DatetimeIndex):
+                        idx = pd.to_datetime(idx)
+                    if idx.tz is not None:
+                        idx = idx.tz_convert(None)
+                    cached_min = idx.min()
+                    if cached_min <= (required_start + pd.Timedelta(days=30)):
+                        return cached_df
+                    logger.info(f"Cache for {ticker} does not cover lookback window; refetching.")
+                except Exception:
+                    logger.info(f"Cache coverage check failed for {ticker}; refetching.")
+
         try:
-            if source in ["stooq", "yfinance"]:
-                # Try Stooq first
+            df = pd.DataFrame()
+            source_used = source
+            fallback_used = False
+            if source == "yfinance":
+                df = self.fetch_yfinance_data(ticker, start_date, end_date)
+                if df.empty or len(df) < 5:
+                    logger.info(f"yfinance returned insufficient data for {ticker}, trying Stooq fallback")
+                    fallback_used = True
+                    source_used = "stooq"
+                    df = self.fetch_stooq_data(ticker, start_date, end_date)
+            elif source == "stooq":
                 df = self.fetch_stooq_data(ticker, start_date, end_date)
-                # Fallback to yfinance if Stooq failed or returned too little data
                 if df.empty or len(df) < 5:
                     logger.info(f"Stooq failed for {ticker}, trying yfinance fallback")
+                    fallback_used = True
+                    source_used = "yfinance"
                     df = self.fetch_yfinance_data(ticker, start_date, end_date)
             elif source == "akshare":
                 df = self.fetch_akshare_data(ticker, start_date, end_date)
+                source_used = "akshare"
             
             if not df.empty:
-                # Extra validation before saving to cache
-                if len(df) > 0:
-                    self.cache.save(ticker, period, df)
+                try:
+                    if not isinstance(df.index, pd.DatetimeIndex):
+                        df.index = pd.to_datetime(df.index)
+                    if df.index.tz is not None:
+                        df.index = df.index.tz_convert(None)
+                    df = df.sort_index(ascending=True)
+                    df = df.ffill()
+                    df.index.name = "Date"
+                except Exception:
+                    pass
+
+                try:
+                    actual_start = str(pd.to_datetime(df.index.min()).date())
+                    actual_end = str(pd.to_datetime(df.index.max()).date())
+                except Exception:
+                    actual_start = None
+                    actual_end = None
+
+                meta = {
+                    "ticker": ticker,
+                    "source_requested": source,
+                    "source_used": source_used,
+                    "fallback_used": bool(fallback_used),
+                    "requested_start": requested_start,
+                    "requested_end": requested_end,
+                    "lookback_years": lookback_years,
+                    "lookback_start": str(required_start.date()) if required_start is not None else None,
+                    "actual_start": actual_start,
+                    "actual_end": actual_end,
+                    "rows": int(len(df)),
+                }
+                df.attrs["fetch_meta"] = meta
+
+                min_rows = 40
+                if lookback_years:
+                    min_rows = 200
+                self.cache.save(ticker, period, df, meta=meta, min_rows=min_rows)
             return df
         except Exception as e:
             logger.error(f"Failed to get data for {ticker}: {str(e)}")

@@ -18,6 +18,8 @@ class AssetProcessor:
             logger.warning(f"Insufficient data to process {asset_name}")
             return None
 
+        asset_df_for_hurst = asset_df.copy()
+
         # --- Strict Date Filtering ---
         # Ensure we only use data within the requested quarter to avoid boundary spill
         analysis_config = self.config.get('analysis', {})
@@ -70,6 +72,58 @@ class AssetProcessor:
 
         # 3. Calculate Risk Metrics
         risk_stats = self.calculator.calculate_risk_metrics(asset_returns, bench_returns, rf_rate)
+        hurst_series = asset_df_for_hurst.copy()
+        try:
+            if not isinstance(hurst_series.index, pd.DatetimeIndex):
+                hurst_series.index = pd.to_datetime(hurst_series.index)
+            if hurst_series.index.tz is not None:
+                hurst_series.index = hurst_series.index.tz_convert(None)
+            if end_date:
+                end_ts = pd.Timestamp(end_date)
+                lookback_years = int(analysis_config.get("lookback_years", 3))
+                start_ts = end_ts - pd.DateOffset(years=lookback_years)
+                hurst_series = hurst_series.loc[start_ts:end_ts]
+        except Exception:
+            pass
+
+        hurst_close = get_col(hurst_series, ['Adj Close', 'Close', '收盘'])
+        if isinstance(hurst_close, pd.DataFrame):
+            hurst_close = hurst_close.iloc[:, 0]
+        hurst = self.calculator.calculate_hurst(hurst_close)
+        risk_stats["hurst"] = round(hurst, 4) if pd.notna(hurst) else None
+
+        vol_p95 = None
+        try:
+            lookback_returns = pd.Series(hurst_close).astype(float).pct_change().dropna()
+            window_days = 63
+            if len(lookback_returns) >= window_days * 2:
+                rolling_vol = lookback_returns.rolling(window_days).std() * (252 ** 0.5)
+                rolling_vol = rolling_vol.dropna()
+                if not rolling_vol.empty:
+                    vol_p95 = float(rolling_vol.quantile(0.95))
+        except Exception:
+            vol_p95 = None
+        risk_stats["vol_p95"] = round(vol_p95, 4) if vol_p95 is not None else None
+
+        quality = {}
+        try:
+            quality["regression_n"] = int(risk_stats.get("n_obs", 0))
+        except Exception:
+            quality["regression_n"] = 0
+        try:
+            quality["hurst_n"] = int(pd.Series(hurst_close).dropna().shape[0])
+        except Exception:
+            quality["hurst_n"] = 0
+
+        try:
+            meta = asset_df_for_hurst.attrs.get("fetch_meta") or asset_df_for_hurst.attrs.get("cache_meta")
+            if meta:
+                quality["source_used"] = meta.get("source_used") or meta.get("source_requested")
+                quality["fallback_used"] = meta.get("fallback_used")
+                quality["actual_start"] = meta.get("actual_start")
+                quality["actual_end"] = meta.get("actual_end")
+        except Exception:
+            pass
 
         # 4. Trend Determination (UP/DOWN for coloring)
         # Total return for the period
@@ -82,6 +136,7 @@ class AssetProcessor:
             "total_return": round(total_return, 4),
             "trend": trend,
             "risk": risk_stats,
+            "quality": quality,
             "period_start": asset_df.index[0].strftime('%Y-%m-%d') if hasattr(asset_df.index[0], 'strftime') else str(asset_df.index[0]),
             "period_end": asset_df.index[-1].strftime('%Y-%m-%d') if hasattr(asset_df.index[-1], 'strftime') else str(asset_df.index[-1])
         }

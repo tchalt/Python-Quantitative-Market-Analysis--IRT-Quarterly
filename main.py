@@ -63,37 +63,65 @@ def main():
             fx_rates[pair] = "N/A"
 
     # 4. Market Analysis (Americas, Europe, Asia)
-    regional_data = {"americas": [], "europe": [], "asia": [], "commodities": []}
+    regional_data = {"americas": [], "europe": [], "asia": [], "commodities": [], "oil": []}
     anomalies = []
     
     # Common Benchmark for global analysis (Stooq)
-    bench_ticker = "^SPX"
+    bench_ticker = config.get("global", {}).get("benchmark", {}).get("symbol") or "^GSPC"
     bench_df = fetcher.get_data(bench_ticker, force_refresh=args.force_refresh)
     rf_rate = config['global']['risk_free_rate']['default_value']
 
     # Process Regions
-    for region in ["americas", "europe", "asia", "commodities"]:
+    for region in ["americas", "europe", "asia", "commodities", "oil"]:
         if region == "asia":
             tickers = config['domestic']['banks'] + config['domestic']['others']
             source = "akshare"
+            sources_map = config.get("domestic", {}).get("sources", {})
+            fallbacks_map = config.get("domestic", {}).get("fallbacks", {})
         elif region == "commodities":
             tickers = config['global']['americas']['commodities']
             fallbacks = config['global']['americas'].get('commodities_fallback', [])
             source = "stooq"
+            sources_map = config.get("global", {}).get("americas", {}).get("sources", {})
+            fallbacks_map = config.get("global", {}).get("americas", {}).get("fallbacks", {})
+        elif region == "oil":
+            tickers = config['global']['americas'].get('oil', []) + config['domestic'].get('oil', [])
+            fallbacks = []
+            source = None
+            sources_map = {}
+            sources_map.update(config.get("global", {}).get("americas", {}).get("sources", {}))
+            sources_map.update(config.get("domestic", {}).get("sources", {}))
+            fallbacks_map = {}
+            fallbacks_map.update(config.get("global", {}).get("americas", {}).get("fallbacks", {}))
+            fallbacks_map.update(config.get("domestic", {}).get("fallbacks", {}))
         else:
             tickers = config['global'][region]['indices']
             fallbacks = []
             source = "stooq"
+            sources_map = config.get("global", {}).get(region, {}).get("sources", {})
+            fallbacks_map = config.get("global", {}).get(region, {}).get("fallbacks", {})
 
         for i, ticker in enumerate(tickers):
             try:
-                asset_df = fetcher.get_data(ticker, source=source, force_refresh=args.force_refresh)
+                selected_source = sources_map.get(ticker, source)
+                if selected_source is None:
+                    selected_source = source or "stooq"
+
+                asset_df = fetcher.get_data(ticker, source=selected_source, force_refresh=args.force_refresh)
                 
                 # Try fallback if primary fails
-                if asset_df.empty and fallbacks and i < len(fallbacks):
-                    fallback_ticker = fallbacks[i]
-                    logger.info(f"Primary {ticker} failed, trying fallback {fallback_ticker}")
-                    asset_df = fetcher.get_data(fallback_ticker, source="yfinance", force_refresh=args.force_refresh)
+                if asset_df.empty:
+                    if fallbacks and i < len(fallbacks):
+                        fallback_ticker = fallbacks[i]
+                        logger.info(f"Primary {ticker} failed, trying fallback {fallback_ticker}")
+                        asset_df = fetcher.get_data(fallback_ticker, source="yfinance", force_refresh=args.force_refresh)
+                    else:
+                        for fb in (fallbacks_map.get(ticker) or []):
+                            logger.info(f"Primary {ticker} failed, trying fallback {fb}")
+                            asset_df = fetcher.get_data(fb, source="yfinance", force_refresh=args.force_refresh)
+                            if not asset_df.empty:
+                                ticker = fb
+                                break
 
                 if asset_df.empty:
                     continue
@@ -112,6 +140,7 @@ def main():
                     except:
                         metrics['last_price'] = "N/A"
                     
+                    metrics["region"] = region
                     regional_data[region].append(metrics)
                     
                     # --- Anomaly Detection ---
@@ -122,12 +151,15 @@ def main():
                             "message": f"Significant Beta shift detected: {metrics['risk']['beta']:.2f}"
                         })
                     
-                    # 2. Volatility Check for Commodities
-                    if region == "commodities" and metrics['risk'].get('volatility', 0) > 0.4:
-                        anomalies.append({
-                            "asset": ticker, 
-                            "message": f"Extreme volatility alert: {metrics['risk']['volatility']:.2%}"
-                        })
+                    # 2. Volatility Top 5% (3-year history) for Commodities and Oil
+                    if region in ["commodities", "oil"]:
+                        vol = metrics['risk'].get('volatility')
+                        vol_p95 = metrics['risk'].get('vol_p95')
+                        if isinstance(vol, (int, float)) and isinstance(vol_p95, (int, float)) and vol_p95 > 0 and vol > vol_p95:
+                            anomalies.append({
+                                "asset": ticker,
+                                "message": f"Quarterly volatility is in the top 5% of its {config['analysis'].get('lookback_years', 3)}-year history (current={vol:.2%}, p95={vol_p95:.2%})"
+                            })
             except Exception as e:
                 logger.error(f"Failed to process {ticker}: {str(e)}")
 
@@ -136,7 +168,7 @@ def main():
     current_info = get_current_quarter_info(config)
     period_label = current_info['period_label']
     
-    generator.generate_terminal_report(regional_data, fx_rates, anomalies)
+    generator.generate_terminal_report(regional_data, fx_rates, anomalies, period_label=period_label)
     
     # Flatten regional_data for HTML report
     all_processed_assets = []
@@ -146,6 +178,14 @@ def main():
     generator.generate_html_report(all_processed_assets, fx_rates, anomalies, 
                                    period_label=period_label, 
                                    filename="quarterly_analysis_report.html")
+
+    generator.generate_pdf_report(
+        all_processed_assets,
+        fx_rates,
+        anomalies,
+        period_label=period_label,
+        filename="quarterly_analysis_report.pdf"
+    )
     
     # Save history record
     period_str = f"Q{current_info['quarter']}_{current_info['year']}"
