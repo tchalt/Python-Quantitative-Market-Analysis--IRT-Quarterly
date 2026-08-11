@@ -68,9 +68,9 @@ fx:
 # --- Analysis Settings ---
 analysis:
   frequency: "quarterly"
-  period_label: "2025 Q4 Analysis"
-  start_date: "2025-10-01"
-  end_date: "2025-12-31"
+  period_label: "2026 Q1 Analysis"
+  start_date: "2026-01-01"
+  end_date: "2026-03-31"
   lookback_years: 3
   cache_dir: "cache"
   log_file: "logs/quant_system.log"

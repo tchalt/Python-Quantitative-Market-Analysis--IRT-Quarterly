@@ -1,0 +1,39 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches
+cache/
+*.parquet
+
+# Logs
+logs/
+*.log
+
+# Generated reports (root level only)
+reports/history/
+quarterly_analysis_report.html
+quarterly_analysis_report.pdf
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+
+# Egg info
+*.egg-info/
