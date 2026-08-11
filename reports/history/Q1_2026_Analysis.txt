@@ -1,0 +1,55 @@
+Global Quantitative Analysis Report - Q1_2026
+==================================================
+
+REGION: AMERICAS
+------------------------------
+^GSPC: Return=-7.51%, Beta=1.0, Hurst=0.4246, Outlook=Market Alignment - Neutral
+^NDX: Return=-8.94%, Beta=1.2504, Hurst=0.3975, Outlook=Market Alignment - Neutral
+
+REGION: EUROPE
+------------------------------
+^STOXX50E: Return=-6.45%, Beta=0.749, Hurst=0.3618, Outlook=Defensive Positioning - Stable
+^GDAXI: Return=-8.05%, Beta=0.7027, Hurst=0.3678, Outlook=Defensive Positioning - Stable
+
+REGION: ASIA
+------------------------------
+sh601939: Return=2.81%, Beta=-0.1363, Hurst=0.2645, Outlook=Defensive Positioning - Stable
+sh601288: Return=-11.49%, Beta=-0.1568, Hurst=0.4253, Outlook=Defensive Positioning - Stable
+sh601988: Return=3.53%, Beta=-0.3018, Hurst=0.249, Outlook=Defensive Positioning - Stable
+sh601398: Return=-2.30%, Beta=-0.2641, Hurst=0.309, Outlook=Defensive Positioning - Stable
+sz300059: Return=-20.46%, Beta=0.2368, Hurst=0.5448, Outlook=Defensive Positioning - Stable
+
+REGION: COMMODITIES
+------------------------------
+GC=F: Return=4.90%, Beta=0.3933, Hurst=0.4007, Outlook=Defensive Positioning - Stable
+SI=F: Return=-0.33%, Beta=1.6148, Hurst=0.4398, Outlook=High Risk - Volatile
+HG=F: Return=-2.91%, Beta=0.953, Hurst=0.3212, Outlook=Market Alignment - Neutral
+
+REGION: OIL
+------------------------------
+BZ=F: Return=85.65%, Beta=-1.5126, Hurst=0.3639, Outlook=Strong Momentum - Bullish
+
+CURRENCY WATCH
+USD/CNY: 6.9116
+EUR/CNY: 7.9423
+EUR/USD: 1.1492
+
+RISK ALERTS
+! sh601939: Significant Beta shift detected: -0.14
+! sh601288: Significant Beta shift detected: -0.16
+! sh601988: Significant Beta shift detected: -0.30
+! sh601398: Significant Beta shift detected: -0.26
+! sz300059: Significant Beta shift detected: 0.24
+! GC=F: Significant Beta shift detected: 0.39
+! GC=F: Quarterly volatility is in the top 5% of its 3-year history (current=41.76%, p95=34.26%)
+! SI=F: Significant Beta shift detected: 1.61
+! SI=F: Quarterly volatility is in the top 5% of its 3-year history (current=104.00%, p95=99.07%)
+! BZ=F: Significant Beta shift detected: -1.51
+! BZ=F: Quarterly volatility is in the top 5% of its 3-year history (current=59.31%, p95=37.49%)
+
+EXECUTIVE SUMMARY
+- AMERICAS: avg return=-8.22% | avg Sharpe=-2.64 | avg Beta=1.13 | avg Hurst=0.41 (Mean-Reverting) | tone=Cautious | best=^GSPC (-7.51%) | worst=^NDX (-8.94%)
+- EUROPE: avg return=-7.25% | avg Sharpe=-1.53 | avg Beta=0.73 | avg Hurst=0.36 (Mean-Reverting) | tone=Cautious | best=^STOXX50E (-6.45%) | worst=^GDAXI (-8.05%)
+- ASIA: avg return=-5.58% | avg Sharpe=-1.37 | avg Beta=-0.12 | avg Hurst=0.36 (Mean-Reverting) | tone=Cautious | best=sh601988 (3.53%) | worst=sz300059 (-20.46%)
+- COMMODITIES: avg return=0.55% | avg Sharpe=0.25 | avg Beta=0.99 | avg Hurst=0.39 (Mean-Reverting) | tone=Neutral | best=GC=F (4.90%) | worst=HG=F (-2.91%)
+- OIL: avg return=85.65% | avg Sharpe=4.70 | avg Beta=-1.51 | avg Hurst=0.36 (Mean-Reverting) | tone=Constructive | best=BZ=F (85.65%) | worst=BZ=F (85.65%)
